@@ -1,3 +1,7 @@
+# PE-Revived (revived fork — Android 17 target, v2.0 in progress)
+
+> Upstream [`saitamasahil/Pixel-Launcher-Extended`](https://github.com/saitamasahil/Pixel-Launcher-Extended) is dead since Aug 2023 (v1.7, Android 13 QPR3). This fork revives it. Original work by **TeamFiles** (GPL-3.0, see `LICENSE`); revival by [**samakshkambxj**](https://github.com/samakshkambxj). Prebuilt A13 APKs in `system/` are **stale** — Phase 1 replaces them with an Android 17 base from current Pixel dumps.
+
 # Pixel Launcher Extended
 
 ![Header Image](https://raw.githubusercontent.com/saitamasahil/Pixel-Launcher-Extended/main/banner2.jpg)

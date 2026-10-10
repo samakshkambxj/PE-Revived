@@ -1,5 +1,7 @@
-id=PixelLauncher_Extended
-name=Pixel Launcher Extended For Android 13
-version=Version 1.7
-author=TeamFiles
-description=Pixel Launcher with some more features & modifications for Android 13
+id=PE_Revived
+name=PE-Revived For Android 17
+version=v2.0.0-beta01
+versionCode=20000
+author=TeamFiles, samakshkambxj (revived fork)
+description=Revived Pixel Launcher with extra features & modifications for Android 17
+updateJson=https://raw.githubusercontent.com/samakshkambxj/PE-Revived/revive/android-17/update.json
