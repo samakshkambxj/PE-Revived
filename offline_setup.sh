@@ -53,7 +53,7 @@ info_print() {
   ui_print ""
   ui_print "**********************************************"
   ui_print "• PE-Revived"
-  ui_print "• Revived from Pixel Launcher Extended by TeamFiles"
+  ui_print "• By samakshkambxj, based on PLE by TeamFiles"
   ui_print "**********************************************"
   ui_print ""
 
