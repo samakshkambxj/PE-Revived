@@ -15,6 +15,7 @@ jobs:
       - name: Build offline installer zip
         run: |
           cp offline_setup.sh setup.sh
+          cp offline_setup.sh customize.sh
           zip -r -q "PE-Revived-offline-${GITHUB_REF_NAME}.zip" . \
             -x '.git/*' 'Modifications/*' 'screenshots/*' \
             'builder.sh' 'builder_dependencies.sh' \
@@ -24,10 +25,12 @@ jobs:
             'update.json' '.github/*' '.gitattributes' '.gitignore' \
             'Pixel Launcher Extended*' 'PE-Revived*'
           rm setup.sh
+          rm customize.sh
 
       - name: Build online installer zip
         run: |
           cp online_setup.sh setup.sh
+          cp online_setup.sh customize.sh
           zip -r -q "PE-Revived-online-${GITHUB_REF_NAME}.zip" . \
             -x '.git/*' 'Modifications/*' 'screenshots/*' \
             'builder.sh' 'builder_dependencies.sh' \
@@ -45,10 +48,12 @@ jobs:
             'system/product/priv-app/IconShapeChanger/IconShapeChanger.apk' \
             'Pixel Launcher Extended*' 'PE-Revived*'
           rm setup.sh
+          rm customize.sh
 
       - name: Build manual installer zip
         run: |
           cp manual_setup.sh setup.sh
+          cp manual_setup.sh customize.sh
           zip -r -q "PE-Revived-manual-${GITHUB_REF_NAME}.zip" . \
             -x '.git/*' 'Modifications/*' 'screenshots/*' \
             'builder.sh' 'builder_dependencies.sh' \
@@ -58,6 +63,7 @@ jobs:
             'update.json' '.github/*' '.gitattributes' '.gitignore' \
             'Pixel Launcher Extended*' 'PE-Revived*'
           rm setup.sh
+          rm customize.sh
 
       - name: Upload zips to release
         env:

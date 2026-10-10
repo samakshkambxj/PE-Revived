@@ -98,6 +98,7 @@ recover_ple() {
   # Delete temp files
   if [ -f "setup.sh" ]; then
     rm setup.sh
+    rm customize.sh
   fi
 }
 
@@ -303,6 +304,7 @@ if [ $choice -eq 1 ]; then
 
   # Copy & Rename offline_setup.sh to setup.sh
   cp offline_setup.sh setup.sh
+  cp offline_setup.sh customize.sh
 
   # Check if the current directory has system folder and setup.sh to verify that current directory is valid
   if [ ! -d "system" ] || [ ! -f "setup.sh" ]; then
@@ -317,6 +319,7 @@ if [ $choice -eq 1 ]; then
   # Delete temp file
   if [ -f "setup.sh" ]; then
     rm setup.sh
+    rm customize.sh
   fi
   echo "Done! You can find it here: '$(pwd)/Pixel Launcher Extended Offline Installer $version.zip'"
   sleep 3
@@ -329,6 +332,7 @@ elif [ $choice -eq 2 ]; then
 
   # Copy & Rename online_setup.sh to setup.sh
   cp online_setup.sh setup.sh
+  cp online_setup.sh customize.sh
 
   # Check if the current directory has system folder and setup.sh to verify that current directory is valid
   if [ ! -d "system" ] || [ ! -f "setup.sh" ]; then
@@ -343,6 +347,7 @@ elif [ $choice -eq 2 ]; then
   # Delete temp file
   if [ -f "setup.sh" ]; then
     rm setup.sh
+    rm customize.sh
   fi
   echo "Done! You can find it here: '$(pwd)/Pixel Launcher Extended Online Installer $version.zip'"
   sleep 3
@@ -355,6 +360,7 @@ elif [ $choice -eq 3 ]; then
 
   # Copy & Rename customize_setup.sh to setup.sh
   cp customize_setup.sh setup.sh
+  cp customize_setup.sh customize.sh
 
   # Check if the current directory has system folder and setup.sh to verify that current directory is valid
   if [ ! -d "system" ] || [ ! -f "setup.sh" ]; then
@@ -511,6 +517,7 @@ elif [ $choice -eq 4 ]; then
 
   # Copy & Rename manual_setup.sh to setup.sh
   cp manual_setup.sh setup.sh
+  cp manual_setup.sh customize.sh
 
   # Check if the current directory has system folder and setup.sh to verify that current directory is valid
   if [ ! -d "system" ] || [ ! -f "setup.sh" ]; then
@@ -525,6 +532,7 @@ elif [ $choice -eq 4 ]; then
   # Delete temp file
   if [ -f "setup.sh" ]; then
     rm setup.sh
+    rm customize.sh
   fi
   echo "Done! You can find it here: '$(pwd)/Pixel Launcher Extended Manual Installer $version.zip'"
   sleep 3
