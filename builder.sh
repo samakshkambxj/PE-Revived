@@ -365,77 +365,7 @@ elif [ $choice -eq 3 ]; then
   # Dividers
   divider="------------------------------------------"
 
-  while true; do
-    echo $divider
-    echo -e "${ORANGE}Which Android Version are you using?${NC}"
-    echo "1. Android 13(November Security Patch or Below)"
-    echo "2. Android 13 QPR(December to February Security Patch)"
-    echo "3. Android 13 QPR2(March to May Security Patch)"
-    echo "4. Android 13 QPR3(June Security Patch or Above)"
-    echo $divider
-    read -p "Enter your choice: " choice
-
-    if [ $choice -eq 1 ]; then
-      make_temp_dir
-      mv -f "system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease01.apk" "system/product/priv-app/NexusLauncherRelease/temp/$file"
-      mv -f "system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease11.apk" "system/product/priv-app/NexusLauncherRelease/temp/$file"
-      mv -f "system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease21.apk" "system/product/priv-app/NexusLauncherRelease/temp/$file"
-      mv -f "system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease02.apk" "system/product/priv-app/NexusLauncherRelease/temp/$file"
-      mv -f "system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease12.apk" "system/product/priv-app/NexusLauncherRelease/temp/$file"
-      mv -f "system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease22.apk" "system/product/priv-app/NexusLauncherRelease/temp/$file"
-      mv -f "system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease03.apk" "system/product/priv-app/NexusLauncherRelease/temp/$file"
-      mv -f "system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease13.apk" "system/product/priv-app/NexusLauncherRelease/temp/$file"
-      mv -f "system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease23.apk" "system/product/priv-app/NexusLauncherRelease/temp/$file"
-      mv -f "system/system_ext/priv-app/WallpaperPickerGoogleRelease/WallpaperPickerGoogleRelease.apk" "system/system_ext/priv-app/WallpaperPickerGoogleRelease/temp/$file"
-      break
-
-    elif [ $choice -eq 2 ]; then
-      make_temp_dir
-      mv -f "system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease00.apk" "system/product/priv-app/NexusLauncherRelease/temp/$file"
-      mv -f "system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease10.apk" "system/product/priv-app/NexusLauncherRelease/temp/$file"
-      mv -f "system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease20.apk" "system/product/priv-app/NexusLauncherRelease/temp/$file"
-      mv -f "system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease02.apk" "system/product/priv-app/NexusLauncherRelease/temp/$file"
-      mv -f "system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease12.apk" "system/product/priv-app/NexusLauncherRelease/temp/$file"
-      mv -f "system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease22.apk" "system/product/priv-app/NexusLauncherRelease/temp/$file"
-      mv -f "system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease03.apk" "system/product/priv-app/NexusLauncherRelease/temp/$file"
-      mv -f "system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease13.apk" "system/product/priv-app/NexusLauncherRelease/temp/$file"
-      mv -f "system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease23.apk" "system/product/priv-app/NexusLauncherRelease/temp/$file"
-      mv -f "system/system_ext/priv-app/WallpaperPickerGoogleRelease/WallpaperPickerGoogleRelease.apk" "system/system_ext/priv-app/WallpaperPickerGoogleRelease/temp/$file"
-      break
-
-    elif [ $choice -eq 3 ]; then
-      make_temp_dir
-      mv -f "system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease00.apk" "system/product/priv-app/NexusLauncherRelease/temp/$file"
-      mv -f "system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease10.apk" "system/product/priv-app/NexusLauncherRelease/temp/$file"
-      mv -f "system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease20.apk" "system/product/priv-app/NexusLauncherRelease/temp/$file"
-      mv -f "system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease01.apk" "system/product/priv-app/NexusLauncherRelease/temp/$file"
-      mv -f "system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease11.apk" "system/product/priv-app/NexusLauncherRelease/temp/$file"
-      mv -f "system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease21.apk" "system/product/priv-app/NexusLauncherRelease/temp/$file"
-      mv -f "system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease03.apk" "system/product/priv-app/NexusLauncherRelease/temp/$file"
-      mv -f "system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease13.apk" "system/product/priv-app/NexusLauncherRelease/temp/$file"
-      mv -f "system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease23.apk" "system/product/priv-app/NexusLauncherRelease/temp/$file"
-      mv -f "system/system_ext/priv-app/WallpaperPickerGoogleRelease/WallpaperPickerGoogleReleaseOld.apk" "system/system_ext/priv-app/WallpaperPickerGoogleRelease/temp/$file"
-      break
-
-    elif [ $choice -eq 4 ]; then
-      make_temp_dir
-      mv -f "system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease00.apk" "system/product/priv-app/NexusLauncherRelease/temp/$file"
-      mv -f "system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease10.apk" "system/product/priv-app/NexusLauncherRelease/temp/$file"
-      mv -f "system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease20.apk" "system/product/priv-app/NexusLauncherRelease/temp/$file"
-      mv -f "system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease01.apk" "system/product/priv-app/NexusLauncherRelease/temp/$file"
-      mv -f "system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease11.apk" "system/product/priv-app/NexusLauncherRelease/temp/$file"
-      mv -f "system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease21.apk" "system/product/priv-app/NexusLauncherRelease/temp/$file"
-      mv -f "system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease02.apk" "system/product/priv-app/NexusLauncherRelease/temp/$file"
-      mv -f "system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease12.apk" "system/product/priv-app/NexusLauncherRelease/temp/$file"
-      mv -f "system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease22.apk" "system/product/priv-app/NexusLauncherRelease/temp/$file"
-      mv -f "system/system_ext/priv-app/WallpaperPickerGoogleRelease/WallpaperPickerGoogleReleaseOld.apk" "system/system_ext/priv-app/WallpaperPickerGoogleRelease/temp/$file"
-      break
-
-    else
-      echo -e "${PEACH}Invalid choice. Please try again.${NC}"
-      echo ""
-    fi
-  done
+  make_temp_dir
 
   while true; do
     echo $divider
@@ -446,58 +376,9 @@ elif [ $choice -eq 3 ]; then
     read -p "Enter your choice: " choice
 
     if [ $choice -eq 1 ]; then
-      while true; do
-        mv -f "system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease00.apk" "system/product/priv-app/NexusLauncherRelease/temp/$file" 2>/dev/null || true
-        mv -f "system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease01.apk" "system/product/priv-app/NexusLauncherRelease/temp/$file" 2>/dev/null || true
-        mv -f "system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease02.apk" "system/product/priv-app/NexusLauncherRelease/temp/$file" 2>/dev/null || true
-        mv -f "system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease03.apk" "system/product/priv-app/NexusLauncherRelease/temp/$file" 2>/dev/null || true
-        echo $divider
-        echo -e "${ORANGE}Do you want to install Glance Greetings Style 1 or Glance Greetings Style 2?${NC}"
-        echo -e "${PURPLE}Example Example Example Example Example${NC}"
-        echo "Example Of Glance Greetings Style 1-"
-        echo "Line 1 - Material You Greetings,"
-        echo "Line 2 - Day & Date"
-        echo "Line 3 - Weather Information"
-        echo -e "${PURPLE}Example Example Example Example Example${NC}"
-        echo "Example Of Glance Greetings Style 2-"
-        echo "Line 1 - Material You Greetings, Day & Date"
-        echo "Line 2 - Weather Information"
-        echo ""
-        echo "1. Glance Greetings Style 1"
-        echo "2. Glance Greetings Style 2"
-        echo $divider
-        read -p "Enter your choice: " choice
-
-        if [ $choice -eq 1 ]; then
-          mv -f "system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease20.apk" "system/product/priv-app/NexusLauncherRelease/temp/$file" 2>/dev/null || true
-          mv -f "system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease21.apk" "system/product/priv-app/NexusLauncherRelease/temp/$file" 2>/dev/null || true
-          mv -f "system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease22.apk" "system/product/priv-app/NexusLauncherRelease/temp/$file" 2>/dev/null || true
-          mv -f "system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease23.apk" "system/product/priv-app/NexusLauncherRelease/temp/$file" 2>/dev/null || true
-          break
-
-        elif [ $choice -eq 2 ]; then
-          mv -f "system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease10.apk" "system/product/priv-app/NexusLauncherRelease/temp/$file" 2>/dev/null || true
-          mv -f "system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease11.apk" "system/product/priv-app/NexusLauncherRelease/temp/$file" 2>/dev/null || true
-          mv -f "system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease12.apk" "system/product/priv-app/NexusLauncherRelease/temp/$file" 2>/dev/null || true
-          mv -f "system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease13.apk" "system/product/priv-app/NexusLauncherRelease/temp/$file" 2>/dev/null || true
-          break
-
-        else
-          echo -e "${PEACH}Invalid choice. Please try again.${NC}"
-          echo ""
-        fi
-      done
       break
 
     elif [ $choice -eq 2 ]; then
-      mv -f "system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease10.apk" "system/product/priv-app/NexusLauncherRelease/temp/$file" 2>/dev/null || true
-      mv -f "system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease20.apk" "system/product/priv-app/NexusLauncherRelease/temp/$file" 2>/dev/null || true
-      mv -f "system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease11.apk" "system/product/priv-app/NexusLauncherRelease/temp/$file" 2>/dev/null || true
-      mv -f "system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease21.apk" "system/product/priv-app/NexusLauncherRelease/temp/$file" 2>/dev/null || true
-      mv -f "system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease12.apk" "system/product/priv-app/NexusLauncherRelease/temp/$file" 2>/dev/null || true
-      mv -f "system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease22.apk" "system/product/priv-app/NexusLauncherRelease/temp/$file" 2>/dev/null || true
-      mv -f "system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease13.apk" "system/product/priv-app/NexusLauncherRelease/temp/$file" 2>/dev/null || true
-      mv -f "system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease23.apk" "system/product/priv-app/NexusLauncherRelease/temp/$file" 2>/dev/null || true
       mv -f "system/product/overlay/TeamFiles_Pill_Dark.apk" "system/product/overlay/temp/$file"
       mv -f "system/product/overlay/TeamFiles_Pill_Dark2.apk" "system/product/overlay/temp/$file"
       mv -f "system/product/overlay/TeamFiles_Pill_Empty.apk" "system/product/overlay/temp/$file"
