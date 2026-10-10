@@ -120,6 +120,8 @@ init_main() {
 
   # Loop over each line in config.txt
   while read -r line; do
+    # Skip blank lines and comments
+    case "$line" in ""|"#"*) continue ;; esac
     # Extract the variable name and value
     var_name=$(echo "$line" | cut -d '=' -f 1)
     var_value=$(echo "$line" | cut -d '=' -f 2)
