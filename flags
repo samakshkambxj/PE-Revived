@@ -1,16 +1,15 @@
 #!/system/bin/sh
-# Flags for PLE
-# Author: Saitama (saitamasahil @ github)
+# DeviceConfig flags for PE-Revived (Android 17 base v907).
+# Checked against the decompiled base: of the old set, only
+# enable_one_search is still read in code. The rest were removed upstream,
+# so forcing them would be a no-op. Live flag names observed on an
+# Android 17 device use the com.android.launcher3.* form below.
 
 # Make changes to `DeviceConfig` flags persistent.
 cmd device_config set_sync_disabled_for_tests persistent
 
 # Main
-cmd device_config put launcher ENABLE_QUICK_LAUNCH_V2 true
-cmd device_config put launcher GBOARD_UPDATE_ENTER_KEY true
-cmd device_config put launcher enable_quick_launch_v2 true
+# Unified search entry point (read in allapps + settings, default true)
 cmd device_config put launcher enable_one_search true
-cmd device_config put launcher ENABLE_LOCAL_RECOMMENDED_WIDGETS_FILTER true
-cmd device_config put launcher ENABLE_SMARTSPACE_ENHANCED true
-cmd device_config put launcher ENABLE_WIDGETS_PICKER_AIAI_SEARCH true
-
+# Responsive workspace backs the extra grid sizes
+cmd device_config put launcher com.android.launcher3.enable_responsive_workspace true
