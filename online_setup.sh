@@ -59,8 +59,8 @@ set_permissions() {
 info_print() {
   ui_print ""
   ui_print "**********************************************"
-  ui_print "• Pixel Launcher Extended"
-  ui_print "• By TeamFiles"
+  ui_print "• PE-Revived"
+  ui_print "• Revived from Pixel Launcher Extended by TeamFiles"
   ui_print "**********************************************"
   ui_print ""
 
@@ -201,7 +201,7 @@ init_main() {
     ui_print ""
 
     if [[ "$FCTEXTAD1" == "Yes" ]]; then
-      ui_print "The installation process of Pixel Launcher Extended has been started!!"
+      ui_print "The installation process of PE-Revived has been started!!"
       download_file "$PLE_BASE_URL/system/system_ext/priv-app/WallpaperPickerGoogleRelease/WallpaperPickerGoogleReleaseOld.apk" "$MODPATH/system/system_ext/priv-app/WallpaperPickerGoogleRelease/WallpaperPickerGoogleReleaseOld.apk"
 
     elif [[ "$FCTEXTAD1" == "No" ]]; then
@@ -361,7 +361,7 @@ init_main() {
     ui_print ""
 
     if [[ "$FCTEXTAD1" == "Yes" ]]; then
-      ui_print "The installation process of Pixel Launcher Extended has been started!!"
+      ui_print "The installation process of PE-Revived has been started!!"
       download_file "$PLE_BASE_URL/system/system_ext/priv-app/WallpaperPickerGoogleRelease/WallpaperPickerGoogleReleaseOld.apk" "$MODPATH/system/system_ext/priv-app/WallpaperPickerGoogleRelease/WallpaperPickerGoogleReleaseOld.apk"
 
     elif [[ "$FCTEXTAD1" == "No" ]]; then
@@ -521,7 +521,7 @@ init_main() {
     ui_print ""
 
     if [[ "$FCTEXTAD1" == "Yes" ]]; then
-      ui_print "The installation process of Pixel Launcher Extended has been started!!"
+      ui_print "The installation process of PE-Revived has been started!!"
       download_file "$PLE_BASE_URL/system/system_ext/priv-app/WallpaperPickerGoogleRelease/WallpaperPickerGoogleRelease.apk" "$MODPATH/system/system_ext/priv-app/WallpaperPickerGoogleRelease/WallpaperPickerGoogleRelease.apk"
 
     elif [[ "$FCTEXTAD1" == "No" ]]; then
@@ -681,7 +681,7 @@ init_main() {
     ui_print ""
 
     if [[ "$FCTEXTAD1" == "Yes" ]]; then
-      ui_print "The installation process of Pixel Launcher Extended has been started!!"
+      ui_print "The installation process of PE-Revived has been started!!"
       download_file "$PLE_BASE_URL/system/system_ext/priv-app/WallpaperPickerGoogleRelease/WallpaperPickerGoogleRelease.apk" "$MODPATH/system/system_ext/priv-app/WallpaperPickerGoogleRelease/WallpaperPickerGoogleRelease.apk"
 
     elif [[ "$FCTEXTAD1" == "No" ]]; then

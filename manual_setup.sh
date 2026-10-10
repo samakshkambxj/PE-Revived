@@ -62,8 +62,8 @@ info_print() {
 
   ui_print ""
   ui_print "**********************************************"
-  ui_print "• Pixel Launcher Extended"
-  ui_print "• By TeamFiles"
+  ui_print "• PE-Revived"
+  ui_print "• Revived from Pixel Launcher Extended by TeamFiles"
   ui_print "**********************************************"
   ui_print ""
 
@@ -401,7 +401,7 @@ init_main() {
   sleep 0.5
 
   ui_print ""
-  ui_print "Finished Installing Pixel Launcher Extended"
+  ui_print "Finished Installing PE-Revived"
 
   ui_print "[*] Clearing system cache to make it work properly..."
   ui_print ""
