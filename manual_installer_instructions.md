@@ -17,33 +17,9 @@
 ### Editing config.txt
 
 #### Line 1: LAUNCHER Variable
-We need to keep this variable like this: `LAUNCHER=xy`, where each different values of x & y define something.
-
-Value of x:
-- If x=0, then launcher doesn't have any material you glance greetings.
-- If x=1, then launcher contains material you glance greetings style 1.
-- If x=2, then launcher contains material you glance greetings style 2.
-  - Example Of Glance Greetings Style 1:
-  ```ss
-  Line 1 - Material You Greetings
-  Line 2 - Day & Date
-  Line 3 - Weather Information
-  ```
-  - Example Of Glance Greetings Style 2:
-  ```ss
-  Line 1 - Material You Greetings, Day & Date
-  Line 2 - Weather Information
-  ```
-
-Value of y:
-- If y=0, then launcher is for Android 13. Android 13 - November security patch or below.
-- If y=1, then launcher is for Android 13 QPR. Android 13 QPR - December to February security patch.
-- If y=2, then launcher is for Android 13 QPR2. Android 13 QPR2 - March to May security patch.
-- If y=3, then launcher is for Android 13 QPR3. Android 13 QPR3 - June security patch or above.
-
-So, now we have defined values of x & y. We need to put these values in config.txt. Suppose you want **glance greetings style 1**  and using **Android 13 QPR2** then `the value x will be 1` & `the value of y will be 2`. So, we will edit config.txt like this:
+Set this variable to `1` to keep glance greetings with the Extended Settings app, or `0` for the stock At A Glance without extras.
 ```sh
-1. LAUNCHER=12
+1. LAUNCHER=1
 ```
 
 #### Line 2: DT2S Variable
@@ -65,7 +41,7 @@ This app can change shape of the icons in PLE. Set this variable to 1 to install
 
 After editing all variables, config.txt will look like this:
 ```sh
-1. LAUNCHER=12
+1. LAUNCHER=1
 2. DT2S=0
 3. Pixel_Launcher_Mods_App=1
 4. Icon_Shape_Changer_App=1
