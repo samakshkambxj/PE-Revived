@@ -114,113 +114,11 @@ init_main() {
     exit 1
   fi
 
-  # Get the security patch date from build.prop
   PATCH_DATE=$(getprop ro.build.version.security_patch)
-
-  # Convert it to YYYYMM format
-  PATCH_YEAR=${PATCH_DATE:0:4}
-  PATCH_MONTH=${PATCH_DATE:5:2}
-  PATCH_LEVEL=$PATCH_YEAR$PATCH_MONTH
-
-  if [ $PATCH_LEVEL -le 202211 ]; then
-    ui_print "Android 13 detected!"
-    ui_print "Security Patch - $PATCH_DATE"
-    rm -rf "$MODPATH/system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease01.apk"
-    rm -rf "$MODPATH/system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease11.apk"
-    rm -rf "$MODPATH/system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease21.apk"
-    rm -rf "$MODPATH/system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease02.apk"
-    rm -rf "$MODPATH/system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease12.apk"
-    rm -rf "$MODPATH/system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease22.apk"
-    rm -rf "$MODPATH/system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease03.apk"
-    rm -rf "$MODPATH/system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease13.apk"
-    rm -rf "$MODPATH/system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease23.apk"
-    rm -rf "$MODPATH/system/system_ext/priv-app/WallpaperPickerGoogleRelease/WallpaperPickerGoogleRelease.apk"
-
-  elif [ $PATCH_LEVEL -le 202302 ]; then
-    ui_print "Android 13 QPR detected!"
-    ui_print "Security Patch - $PATCH_DATE"
-    rm -rf "$MODPATH/system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease00.apk"
-    rm -rf "$MODPATH/system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease10.apk"
-    rm -rf "$MODPATH/system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease20.apk"
-    rm -rf "$MODPATH/system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease02.apk"
-    rm -rf "$MODPATH/system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease12.apk"
-    rm -rf "$MODPATH/system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease22.apk"
-    rm -rf "$MODPATH/system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease03.apk"
-    rm -rf "$MODPATH/system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease13.apk"
-    rm -rf "$MODPATH/system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease23.apk"
-    rm -rf "$MODPATH/system/system_ext/priv-app/WallpaperPickerGoogleRelease/WallpaperPickerGoogleRelease.apk"
-
-  elif [ $PATCH_LEVEL -le 202305 ]; then
-    ui_print "Android 13 QPR2 detected!"
-    ui_print "Security Patch - $PATCH_DATE"
-    rm -rf "$MODPATH/system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease00.apk"
-    rm -rf "$MODPATH/system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease10.apk"
-    rm -rf "$MODPATH/system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease20.apk"
-    rm -rf "$MODPATH/system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease01.apk"
-    rm -rf "$MODPATH/system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease11.apk"
-    rm -rf "$MODPATH/system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease21.apk"
-    rm -rf "$MODPATH/system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease03.apk"
-    rm -rf "$MODPATH/system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease13.apk"
-    rm -rf "$MODPATH/system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease23.apk"
-    rm -rf "$MODPATH/system/system_ext/priv-app/WallpaperPickerGoogleRelease/WallpaperPickerGoogleReleaseOld.apk"
-
-  elif [ $PATCH_LEVEL -ge 202306 ]; then
-    ui_print "Android 13 QPR3 detected!"
-    ui_print "Security Patch - $PATCH_DATE"
-    rm -rf "$MODPATH/system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease00.apk"
-    rm -rf "$MODPATH/system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease10.apk"
-    rm -rf "$MODPATH/system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease20.apk"
-    rm -rf "$MODPATH/system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease01.apk"
-    rm -rf "$MODPATH/system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease11.apk"
-    rm -rf "$MODPATH/system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease21.apk"
-    rm -rf "$MODPATH/system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease02.apk"
-    rm -rf "$MODPATH/system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease12.apk"
-    rm -rf "$MODPATH/system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease22.apk"
-    rm -rf "$MODPATH/system/system_ext/priv-app/WallpaperPickerGoogleRelease/WallpaperPickerGoogleReleaseOld.apk"
-  fi
-
+  ui_print "Android 17 base selected."
+  ui_print "Security Patch - $PATCH_DATE"
   ui_print ""
-  ui_print "[*] If the information displayed above is accurate?"
-  ui_print "[*] Press volume up to switch to another choice"
-  ui_print "[*] Press volume down to continue with that choice"
-  ui_print ""
-
-  sleep 0.5
-
-  ui_print "--------------------------------"
-  ui_print "[1] Yes"
-  ui_print "--------------------------------"
-  ui_print "[2] No"
-  ui_print "--------------------------------"
-
-  ui_print ""
-  ui_print "[*] Select your desired option:"
-
-  SM=1
-  while true; do
-    ui_print "  $SM"
-    "$VKSEL" && SM="$((SM + 1))" || break
-    [[ "$SM" -gt "2" ]] && SM=1
-  done
-
-  case "$SM" in
-  "1") FCTEXTAD1="Yes" ;;
-  "2") FCTEXTAD1="No" ;;
-  esac
-
-  ui_print "[*] Selected: $FCTEXTAD1"
-  ui_print ""
-
-  if [[ "$FCTEXTAD1" == "Yes" ]]; then
-    ui_print "The installation process of PE-Revived has been started!!"
-
-  elif [[ "$FCTEXTAD1" == "No" ]]; then
-    ui_print "Tell your rom maintainer to fix"
-    ui_print "'getprop ro.build.version.security_patch - $PATCH_DATE' value"
-    ui_print "or make Customize Installer from GitHub"
-    exit 1
-  fi
-
+  ui_print "The installation process of PE-Revived has been started!!"
   ui_print ""
   ui_print "[*] Do you wanna add 'Material You Greetings In At A Glance'"
   ui_print "& install Extended Settings app?"
@@ -255,70 +153,8 @@ init_main() {
   ui_print ""
 
   if [[ "$FCTEXTAD1" == "Yes" ]]; then
-    rm -rf "$MODPATH/system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease00.apk"
-    rm -rf "$MODPATH/system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease01.apk"
-    rm -rf "$MODPATH/system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease02.apk"
-    rm -rf "$MODPATH/system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease03.apk"
-    ui_print "[*] Do you want to install Glance Greetings Style 1 or Glance Greetings Style 2?"
-    ui_print "[*] Press volume up to switch to another choice"
-    ui_print "[*] Press volume down to continue with that choice"
-    ui_print ""
-
-    sleep 0.5
-
-    ui_print "--------------------------------"
-    ui_print "[1] Glance Greetings Style 1"
-    ui_print "Example Of Style 1-"
-    ui_print "Line 1 - Material You Greetings,"
-    ui_print "Line 2 - Day & Date"
-    ui_print "Line 3 - Weather Information"
-    ui_print "--------------------------------"
-    ui_print "[2] Glance Greetings Style 2"
-    ui_print "Example Of Style 2-"
-    ui_print "Line 1 - Material You Greetings, Day & Date"
-    ui_print "Line 2 - Weather Information"
-    ui_print "--------------------------------"
-
-    ui_print ""
-    ui_print "[*] Select your desired option:"
-
-    SM="1"
-    while true; do
-      ui_print "  $SM"
-      "$VKSEL" && SM="$((SM + 1))" || break
-      [[ "$SM" -gt "2" ]] && SM="1"
-    done
-
-    case "$SM" in
-    "1") FCTEXTAD1="Glance Greetings Style 1" ;;
-    "2") FCTEXTAD1="Glance Greetings Style 2" ;;
-    esac
-
-    ui_print "[*] Selected: $FCTEXTAD1"
-    ui_print ""
-
-    if [[ "$FCTEXTAD1" == "Glance Greetings Style 1" ]]; then
-      rm -rf "$MODPATH/system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease20.apk"
-      rm -rf "$MODPATH/system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease21.apk"
-      rm -rf "$MODPATH/system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease22.apk"
-      rm -rf "$MODPATH/system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease23.apk"
-
-    elif [[ "$FCTEXTAD1" == "Glance Greetings Style 2" ]]; then
-      rm -rf "$MODPATH/system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease10.apk"
-      rm -rf "$MODPATH/system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease11.apk"
-      rm -rf "$MODPATH/system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease12.apk"
-      rm -rf "$MODPATH/system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease13.apk"
-    fi
-
+    ui_print "[*] Keeping greetings styles with the single Android 17 base."
   elif [[ "$FCTEXTAD1" == "No" ]]; then
-    rm -rf "$MODPATH/system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease10.apk"
-    rm -rf "$MODPATH/system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease20.apk"
-    rm -rf "$MODPATH/system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease11.apk"
-    rm -rf "$MODPATH/system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease21.apk"
-    rm -rf "$MODPATH/system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease12.apk"
-    rm -rf "$MODPATH/system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease22.apk"
-    rm -rf "$MODPATH/system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease13.apk"
-    rm -rf "$MODPATH/system/product/priv-app/NexusLauncherRelease/NexusLauncherRelease23.apk"
     rm -rf "$MODPATH/system/product/overlay/TeamFiles_Pill_Dark.apk"
     rm -rf "$MODPATH/system/product/overlay/TeamFiles_Pill_Dark2.apk"
     rm -rf "$MODPATH/system/product/overlay/TeamFiles_Pill_Empty.apk"
