@@ -341,3 +341,10 @@ init_main() {
   touch "$MODPATH/first"
 
 }
+# KernelSU sources customize.sh directly and never calls init_main (that
+# call lives in the Magisk update-binary). Run the install here when this
+# script runs outside the Magisk flow.
+if [ -n "$KSU" ]; then
+  info_print
+  init_main
+fi
