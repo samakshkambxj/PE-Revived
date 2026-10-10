@@ -36,6 +36,7 @@ jobs:
             'manual_installer_instructions.md' 'config.txt' 'README.md' \
             'update.json' '.github/*' '.gitattributes' '.gitignore' \
             'system/product/priv-app/NexusLauncherRelease/**' \
+            'system/system_ext/priv-app/NexusLauncherRelease/*' \
             'system/product/priv-app/PixelLauncherMods/PixelLauncherMods.apk' \
             'system/product/overlay/ThemedIconsOverlay/**' \
             'system/system_ext/priv-app/WallpaperPickerGoogleRelease/*' \

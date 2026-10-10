@@ -165,6 +165,8 @@ init_main() {
   ui_print ""
   ui_print "Downloading launcher base..."
   ui_print ""
+  mkdir -p "$MODPATH/system/system_ext/priv-app/NexusLauncherRelease"
+  mkdir -p "$MODPATH/system/system_ext/priv-app/WallpaperPickerGoogleRelease"
   download_file "$PLE_BASE_URL/system/system_ext/priv-app/NexusLauncherRelease/NexusLauncherRelease.apk" "$MODPATH/system/system_ext/priv-app/NexusLauncherRelease/NexusLauncherRelease.apk"
   download_file "$PLE_BASE_URL/system/system_ext/priv-app/WallpaperPickerGoogleRelease/WallpaperPickerGoogleRelease.apk" "$MODPATH/system/system_ext/priv-app/WallpaperPickerGoogleRelease/WallpaperPickerGoogleRelease.apk"
 
