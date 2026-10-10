@@ -1,3 +1,10 @@
+**Version 2.0.0 Beta 01 (PE-Revived, Android 17 only)**
+- Single Android 17 launcher base (v907) instead of twelve Android 13 variants.
+- Installers require SDK 37 and work on Magisk and KernelSU.
+- Manual installer config simplified: LAUNCHER is now 0 or 1.
+- Online installer downloads from this fork; zips are built by CI on release tags.
+- Known issues: Extended Settings and Launcher Mods apps crash on Android 17 and need replacements; greetings styles and extra grids return with the rebuilt base.
+
 **Version 1.7 Beta**
 - Removed unnecessary permissions. It may probably fix battery drain issue happening in some custom roms.
 - Updated Extended Settings & Icon Shape Changer's library.

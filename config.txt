@@ -1,6 +1,9 @@
 # LAUNCHER: 0 = stock At A Glance, 1 = greetings + Extended Settings app
 LAUNCHER=1
-DT2S=
-Pixel_Launcher_Mods_App=
-Icon_Shape_Changer_App=
+# DT2S needs LSPosed; 0 skips the untested app
+DT2S=0
+# Launcher Mods is discontinued upstream; 0 skips it
+Pixel_Launcher_Mods_App=0
+# Icon shapes + changer app
+Icon_Shape_Changer_App=1
 # Don't modify anything after this
