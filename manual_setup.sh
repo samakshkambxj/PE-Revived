@@ -54,7 +54,7 @@ info_print() {
   sdk_version=$(getprop ro.build.version.sdk)
 
   # PE-Revived ships an Android 17 base (minSdk 37)
-  if [[ $sdk_version -lt 37 ]]; then
+  if [ $sdk_version -lt 37 ]; then
     # Fail the script immediately
     echo "Error: PE-Revived needs Android 17 (SDK 37), found SDK $sdk_version"
     exit 1
@@ -127,7 +127,7 @@ init_main() {
     # Check the variable name and execute different commands based on the value
     case $var_name in
     LAUNCHER)
-      if [ "$var_value" == "0" ]; then
+      if [ "$var_value" = "0" ]; then
         rm -rf "$MODPATH/system/product/overlay/TeamFiles_Pill_Dark.apk"
         rm -rf "$MODPATH/system/product/overlay/TeamFiles_Pill_Dark2.apk"
         rm -rf "$MODPATH/system/product/overlay/TeamFiles_Pill_Empty.apk"
@@ -141,7 +141,7 @@ init_main() {
         rm -rf "$MODPATH/system/product/overlay/TeamFiles_UserLockscreen.apk"
         rm -rf "$MODPATH/system/product/priv-app/ExtendedSettings"
         rm -rf "$MODPATH/system/product/etc/permissions/privapp-permissions-com.domain.liranazuz5.extendedsettings.xml"
-      elif [ "$var_value" == "1" ]; then
+      elif [ "$var_value" = "1" ]; then
         :
       else
         echo "Invalid value of LAUNCHER in config.txt (use 0 or 1)"
@@ -149,10 +149,10 @@ init_main() {
       fi
       ;;
     DT2S)
-      if [ "$var_value" == "0" ]; then
+      if [ "$var_value" = "0" ]; then
         rm -rf "$MODPATH/system/product/priv-app/PixelLauncherDT2S"
         rm -rf "$MODPATH/system/product/etc/permissions/privapp-permissions-com.uragiristereo.pldt2s.xml"
-      elif [ "$var_value" == "1" ]; then
+      elif [ "$var_value" = "1" ]; then
         :
       else
         echo "Invalid value of DT2S in config.txt"
@@ -160,11 +160,11 @@ init_main() {
       fi
       ;;
     Pixel_Launcher_Mods_App)
-      if [ "$var_value" == "0" ]; then
+      if [ "$var_value" = "0" ]; then
         rm -rf "$MODPATH/system/product/priv-app/PixelLauncherMods"
         rm -rf "$MODPATH/system/product/etc/permissions/privapp-permissions-com.kieronquinn.app.pixellaunchermods.xml"
         rm -rf "$MODPATH/system/product/overlay/PixelLauncherModsOverlay"
-      elif [ "$var_value" == "1" ]; then
+      elif [ "$var_value" = "1" ]; then
         :
       else
         echo "Invalid value of Pixel_Launcher_Mods_App in config.txt"
@@ -172,7 +172,7 @@ init_main() {
       fi
       ;;
     Icon_Shape_Changer_App)
-      if [ "$var_value" == "0" ]; then
+      if [ "$var_value" = "0" ]; then
         rm -rf "$MODPATH/system/product/overlay/TeamFiles_we_Cloudy.apk"
         rm -rf "$MODPATH/system/product/overlay/TeamFiles_we_Cylinder.apk"
         rm -rf "$MODPATH/system/product/overlay/TeamFiles_we_Flower.apk"
@@ -191,7 +191,7 @@ init_main() {
         rm -rf "$MODPATH/system/product/overlay/TeamFiles_we_Samsung.apk"
         rm -rf "$MODPATH/system/product/priv-app/IconShapeChanger"
         rm -rf "$MODPATH/system/product/etc/permissions/privapp-permissions-com.saitama.iconshape.xml"
-      elif [ "$var_value" == "1" ]; then
+      elif [ "$var_value" = "1" ]; then
         :
       else
         echo "Invalid value of Icon_Shape_Changer_App in config.txt"

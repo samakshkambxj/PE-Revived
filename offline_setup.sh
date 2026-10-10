@@ -108,7 +108,7 @@ init_main() {
   sdk_version=$(getprop ro.build.version.sdk)
 
   # PE-Revived ships an Android 17 base (minSdk 37)
-  if [[ $sdk_version -lt 37 ]]; then
+  if [ $sdk_version -lt 37 ]; then
     # Fail the script immediately
     echo "Error: PE-Revived needs Android 17 (SDK 37), found SDK $sdk_version"
     exit 1
@@ -141,7 +141,7 @@ init_main() {
   while true; do
     ui_print "  $SM"
     "$VKSEL" && SM="$((SM + 1))" || break
-    [[ "$SM" -gt "2" ]] && SM=1
+    [ "$SM" -gt "2" ] && SM=1
   done
 
   case "$SM" in
@@ -152,9 +152,9 @@ init_main() {
   ui_print "[*] Selected: $FCTEXTAD1"
   ui_print ""
 
-  if [[ "$FCTEXTAD1" == "Yes" ]]; then
+  if [ "$FCTEXTAD1" = "Yes" ]; then
     ui_print "[*] Keeping greetings styles with the single Android 17 base."
-  elif [[ "$FCTEXTAD1" == "No" ]]; then
+  elif [ "$FCTEXTAD1" = "No" ]; then
     rm -rf "$MODPATH/system/product/overlay/TeamFiles_Pill_Dark.apk"
     rm -rf "$MODPATH/system/product/overlay/TeamFiles_Pill_Dark2.apk"
     rm -rf "$MODPATH/system/product/overlay/TeamFiles_Pill_Empty.apk"
@@ -196,7 +196,7 @@ init_main() {
   while true; do
     ui_print "  $SM"
     "$VKSEL" && SM="$((SM + 1))" || break
-    [[ "$SM" -gt "2" ]] && SM=1
+    [ "$SM" -gt "2" ] && SM=1
   done
 
   case "$SM" in
@@ -207,10 +207,10 @@ init_main() {
   ui_print "[*] Selected: $FCTEXTAD1"
   ui_print ""
 
-  if [[ "$FCTEXTAD1" == "Yes" ]]; then
+  if [ "$FCTEXTAD1" = "Yes" ]; then
     :
 
-  elif [[ "$FCTEXTAD1" == "No" ]]; then
+  elif [ "$FCTEXTAD1" = "No" ]; then
     rm -rf "$MODPATH/system/product/priv-app/PixelLauncherDT2S"
     rm -rf "$MODPATH/system/product/etc/permissions/privapp-permissions-com.uragiristereo.pldt2s.xml"
   fi
@@ -239,7 +239,7 @@ init_main() {
   while true; do
     ui_print "  $SM"
     "$VKSEL" && SM="$((SM + 1))" || break
-    [[ "$SM" -gt "2" ]] && SM=1
+    [ "$SM" -gt "2" ] && SM=1
   done
 
   case "$SM" in
@@ -250,10 +250,10 @@ init_main() {
   ui_print "[*] Selected: $FCTEXTAD1"
   ui_print ""
 
-  if [[ "$FCTEXTAD1" == "Yes" ]]; then
+  if [ "$FCTEXTAD1" = "Yes" ]; then
     :
 
-  elif [[ "$FCTEXTAD1" == "No" ]]; then
+  elif [ "$FCTEXTAD1" = "No" ]; then
     rm -rf "$MODPATH/system/product/priv-app/PixelLauncherMods"
     rm -rf "$MODPATH/system/product/etc/permissions/privapp-permissions-com.kieronquinn.app.pixellaunchermods.xml"
     rm -rf "$MODPATH/system/product/overlay/PixelLauncherModsOverlay"
@@ -280,7 +280,7 @@ init_main() {
   while true; do
     ui_print "  $SM"
     "$VKSEL" && SM="$((SM + 1))" || break
-    [[ "$SM" -gt "2" ]] && SM=1
+    [ "$SM" -gt "2" ] && SM=1
   done
 
   case "$SM" in
@@ -291,10 +291,10 @@ init_main() {
   ui_print "[*] Selected: $FCTEXTAD1"
   ui_print ""
 
-  if [[ "$FCTEXTAD1" == "Yes" ]]; then
+  if [ "$FCTEXTAD1" = "Yes" ]; then
     :
 
-  elif [[ "$FCTEXTAD1" == "No" ]]; then
+  elif [ "$FCTEXTAD1" = "No" ]; then
     rm -rf "$MODPATH/system/product/overlay/TeamFiles_we_Cloudy.apk"
     rm -rf "$MODPATH/system/product/overlay/TeamFiles_we_Cylinder.apk"
     rm -rf "$MODPATH/system/product/overlay/TeamFiles_we_Flower.apk"

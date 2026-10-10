@@ -54,7 +54,7 @@ info_print() {
   sdk_version=$(getprop ro.build.version.sdk)
 
   # PE-Revived ships an Android 17 base (minSdk 37)
-  if [[ $sdk_version -lt 37 ]]; then
+  if [ $sdk_version -lt 37 ]; then
     # Fail the script immediately
     echo "Error: PE-Revived needs Android 17 (SDK 37), found SDK $sdk_version"
     exit 1

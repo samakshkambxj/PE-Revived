@@ -150,7 +150,7 @@ init_main() {
   sdk_version=$(getprop ro.build.version.sdk)
 
   # PE-Revived ships an Android 17 base (minSdk 37)
-  if [[ $sdk_version -lt 37 ]]; then
+  if [ $sdk_version -lt 37 ]; then
     # Fail the script immediately
     echo "Error: PE-Revived needs Android 17 (SDK 37), found SDK $sdk_version"
     exit 1
@@ -192,7 +192,7 @@ init_main() {
   while true; do
     ui_print "  $SM"
     "$VKSEL" && SM="$((SM + 1))" || break
-    [[ "$SM" -gt "2" ]] && SM=1
+    [ "$SM" -gt "2" ] && SM=1
   done
 
   case "$SM" in
@@ -203,7 +203,7 @@ init_main() {
   ui_print "[*] Selected: $FCTEXTAD1"
   ui_print ""
 
-  if [[ "$FCTEXTAD1" == "Yes" ]]; then
+  if [ "$FCTEXTAD1" = "Yes" ]; then
     ui_print "Downloading required dependencies..."
     ui_print ""
     download_file "$PLE_BASE_URL/system/product/overlay/TeamFiles_Pill_Dark.apk" "$MODPATH/system/product/overlay/TeamFiles_Pill_Dark.apk"
@@ -219,7 +219,7 @@ init_main() {
     download_file "$PLE_BASE_URL/system/product/overlay/TeamFiles_UserLockscreen.apk" "$MODPATH/system/product/overlay/TeamFiles_UserLockscreen.apk"
     download_file "$PLE_BASE_URL/system/product/priv-app/ExtendedSettings/ExtendedSettings.apk" "$MODPATH/system/product/priv-app/ExtendedSettings/ExtendedSettings.apk"
 
-  elif [[ "$FCTEXTAD1" == "No" ]]; then
+  elif [ "$FCTEXTAD1" = "No" ]; then
     rm -rf "$MODPATH/system/product/etc/permissions/privapp-permissions-com.domain.liranazuz5.extendedsettings.xml"
   fi
 
@@ -249,7 +249,7 @@ init_main() {
   while true; do
     ui_print "  $SM"
     "$VKSEL" && SM="$((SM + 1))" || break
-    [[ "$SM" -gt "2" ]] && SM=1
+    [ "$SM" -gt "2" ] && SM=1
   done
 
   case "$SM" in
@@ -260,10 +260,10 @@ init_main() {
   ui_print "[*] Selected: $FCTEXTAD1"
   ui_print ""
 
-  if [[ "$FCTEXTAD1" == "Yes" ]]; then
+  if [ "$FCTEXTAD1" = "Yes" ]; then
     :
 
-  elif [[ "$FCTEXTAD1" == "No" ]]; then
+  elif [ "$FCTEXTAD1" = "No" ]; then
     rm -rf "$MODPATH/system/product/priv-app/PixelLauncherDT2S"
     rm -rf "$MODPATH/system/product/etc/permissions/privapp-permissions-com.uragiristereo.pldt2s.xml"
   fi
@@ -292,7 +292,7 @@ init_main() {
   while true; do
     ui_print "  $SM"
     "$VKSEL" && SM="$((SM + 1))" || break
-    [[ "$SM" -gt "2" ]] && SM=1
+    [ "$SM" -gt "2" ] && SM=1
   done
 
   case "$SM" in
@@ -303,12 +303,12 @@ init_main() {
   ui_print "[*] Selected: $FCTEXTAD1"
   ui_print ""
 
-  if [[ "$FCTEXTAD1" == "Yes" ]]; then
+  if [ "$FCTEXTAD1" = "Yes" ]; then
     ui_print "Downloading..."
     ui_print ""
     download_file "$PLE_BASE_URL/system/product/priv-app/PixelLauncherMods/PixelLauncherMods.apk" "$MODPATH/system/product/priv-app/PixelLauncherMods/PixelLauncherMods.apk"
 
-  elif [[ "$FCTEXTAD1" == "No" ]]; then
+  elif [ "$FCTEXTAD1" = "No" ]; then
     rm -rf "$MODPATH/system/product/priv-app/PixelLauncherMods"
     rm -rf "$MODPATH/system/product/etc/permissions/privapp-permissions-com.kieronquinn.app.pixellaunchermods.xml"
     rm -rf "$MODPATH/system/product/overlay/PixelLauncherModsOverlay"
@@ -335,7 +335,7 @@ init_main() {
   while true; do
     ui_print "  $SM"
     "$VKSEL" && SM="$((SM + 1))" || break
-    [[ "$SM" -gt "2" ]] && SM=1
+    [ "$SM" -gt "2" ] && SM=1
   done
 
   case "$SM" in
@@ -346,7 +346,7 @@ init_main() {
   ui_print "[*] Selected: $FCTEXTAD1"
   ui_print ""
 
-  if [[ "$FCTEXTAD1" == "Yes" ]]; then
+  if [ "$FCTEXTAD1" = "Yes" ]; then
     ui_print "Downloading required dependencies..."
     ui_print ""
     download_file "$PLE_BASE_URL/system/product/overlay/TeamFiles_we_Cloudy.apk" "$MODPATH/system/product/overlay/TeamFiles_we_Cloudy.apk"
@@ -367,7 +367,7 @@ init_main() {
     download_file "$PLE_BASE_URL/system/product/overlay/TeamFiles_we_Samsung.apk" "$MODPATH/system/product/overlay/TeamFiles_we_Samsung.apk"
     download_file "$PLE_BASE_URL/system/product/priv-app/IconShapeChanger/IconShapeChanger.apk" "$MODPATH/system/product/priv-app/IconShapeChanger/IconShapeChanger.apk"
 
-  elif [[ "$FCTEXTAD1" == "No" ]]; then
+  elif [ "$FCTEXTAD1" = "No" ]; then
     rm -rf "$MODPATH/system/product/etc/permissions/privapp-permissions-com.saitama.iconshape.xml"
   fi
 
