@@ -42,11 +42,11 @@ set_permissions() {
   set_perm_recursive "$MODPATH/system/product/overlay/ThemedIconsOverlay" 0 0 0777 0755
   set_perm_recursive "$MODPATH/system/product/priv-app/ExtendedSettings" 0 0 0777 0755
   set_perm_recursive "$MODPATH/system/product/priv-app/IconShapeChanger" 0 0 0777 0755
-  set_perm_recursive "$MODPATH/system/product/priv-app/NexusLauncherRelease" 0 0 0777 0755
   set_perm_recursive "$MODPATH/system/product/priv-app/PixelLauncherDT2S" 0 0 0777 0755
   set_perm_recursive "$MODPATH/system/product/priv-app/PixelLauncherMods" 0 0 0777 0755
   set_perm_recursive "$MODPATH/system/product/priv-app/PixelLauncherMods/lib/arm64" 0 0 0777 0755
   set_perm_recursive "$MODPATH/system/system_ext/etc/permissions" 0 0 0777 0755
+  set_perm_recursive "$MODPATH/system/system_ext/priv-app/NexusLauncherRelease" 0 0 0777 0755
   set_perm_recursive "$MODPATH/system/system_ext/priv-app/QuickAccessWallet" 0 0 0777 0755
   set_perm_recursive "$MODPATH/system/system_ext/priv-app/WallpaperPickerGoogleRelease" 0 0 0777 0755
 }
@@ -87,7 +87,6 @@ REPLACE="
 /system/product/priv-app/ParanoidQuickStep
 /system/product/priv-app/ShadyQuickStep
 /system/product/priv-app/TrebuchetQuickStep
-/system/product/priv-app/NexusLauncherRelease
 /system/product/overlay/PixelLauncherIconsOverlay
 /system/product/overlay/CustomPixelLauncherOverlay
 /system/system_ext/priv-app/NexusLauncherRelease
@@ -150,10 +149,10 @@ init_main() {
   # Get the Android SDK version
   sdk_version=$(getprop ro.build.version.sdk)
 
-  # Check if the SDK version is 32 or below
-  if [[ $sdk_version -le 32 ]]; then
+  # PE-Revived ships an Android 17 base (minSdk 37)
+  if [[ $sdk_version -lt 37 ]]; then
     # Fail the script immediately
-    echo "Error: Unsupported SDK version ($sdk_version)"
+    echo "Error: PE-Revived needs Android 17 (SDK 37), found SDK $sdk_version"
     exit 1
   fi
 
