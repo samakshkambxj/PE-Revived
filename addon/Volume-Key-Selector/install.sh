@@ -1,6 +1,15 @@
 # External Tools
 chmod -R 0755 $MODPATH/addon/Volume-Key-Selector/tools
 
+# ARCH32 is normally set by Magisk's util_functions; derive it when absent
+# (e.g. KernelSU) so the keycheck fallback can find its binary.
+if [ -z "$ARCH32" ]; then
+  case "${ARCH:-$(getprop ro.product.cpu.abi 2>/dev/null)}" in
+    arm64*|armeabi*) ARCH32=arm ;;
+    x86_64*|x86*) ARCH32=x86 ;;
+  esac
+fi
+
 chooseport_legacy() {
     # Keycheck binary by someone755 @Github, idea for code below by Zappo @xda-developers
     # Calling it first time detects previous input. Calling it second time will do what we want

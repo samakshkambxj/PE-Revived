@@ -104,6 +104,15 @@ REPLACE="
 
 # Change the logic to whatever you want
 init_main() {
+  # A broken/absent volume-key selector takes the first option (Yes) at
+  # every prompt with no waiting. Refuse instead and point at the
+  # non-interactive installers.
+  if [ -z "$VKSEL" ]; then
+    ui_print "Volume-key selector unavailable; cannot ask questions."
+    ui_print "Use the Manual (config.txt) or Customize installer instead."
+    abort "Volume-key selector unavailable"
+  fi
+
   # Get the Android SDK version
   sdk_version=$(getprop ro.build.version.sdk)
 

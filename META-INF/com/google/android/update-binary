@@ -30,7 +30,28 @@ ZIPFILE="$3"
 mount /data 2>/dev/null
 
 # Load utility functions
-source "/data/adb/magisk/util_functions.sh"
+if [[ -f "/data/adb/magisk/util_functions.sh" ]]; then
+  source "/data/adb/magisk/util_functions.sh"
+else
+  # Non-Magisk environments (e.g. KernelSU) have no util_functions.sh.
+  # Minimal fallbacks so missing helpers fail loudly instead of
+  # silently mis-installing (empty $VKSEL auto-picks "Yes" everywhere,
+  # empty $BOOTMODE kills this script before cleanup).
+  abort() { echo "abort: $*" >&2; exit 1; }
+  grep_prop() { grep "^$1=" "$2" | head -n1 | cut -d= -f2-; }
+  mktouch() { mkdir -p "${1%/*}" 2>/dev/null; [[ -e "$1" ]] || touch "$1" 2>/dev/null; }
+  set_perm_recursive() { find "$1" -type d -exec chmod "$4" {} + 2>/dev/null; find "$1" -type f -exec chmod "$5" {} + 2>/dev/null; }
+  api_level_arch_detect() {
+    API="$(getprop ro.build.version.sdk 2>/dev/null)"
+    ARCH="$(getprop ro.product.cpu.abi 2>/dev/null)"
+  }
+  boot_actions() { :; }
+  recovery_actions() { :; }
+  setup_flashable() { :; }
+  mount_partitions() { :; }
+  copy_sepolicy_rules() { :; }
+  recovery_cleanup() { :; }
+fi
 
 # Preperation for flashable zips
 setup_flashable
@@ -42,7 +63,7 @@ mount_partitions
 api_level_arch_detect
 
 # Setup busybox and binaries
-"$BOOTMODE" && boot_actions || recovery_actions
+[ "$BOOTMODE" = true ] && boot_actions || recovery_actions
 
 ##############
 # PREPARATION
@@ -54,7 +75,7 @@ unzip -o "$ZIPFILE" module.prop -d "$TMPDIR" >&2
 
 # Mod vars
 NVBASE="/data/adb"
-$BOOTMODE && MODDIRNAME=modules_update || MODDIRNAME=modules
+[ "$BOOTMODE" = true ] && MODDIRNAME=modules_update || MODDIRNAME=modules
 MODULEROOT="$NVBASE/$MODDIRNAME"
 MODID="$(grep_prop "id" "$TMPDIR/module.prop")"
 MODPATH="$MODULEROOT/$MODID"
@@ -108,7 +129,7 @@ for TARGET in $REPLACE; do
   mktouch "$MODPATH$TARGET/.replace"
 done
 
-"$BOOTMODE" && {
+[ "$BOOTMODE" = true ] && {
   # Update info for Magisk app
   mktouch "$NVBASE/modules/$MODID/update"
   cp -af "$MODPATH/module.prop" "$NVBASE/modules/$MODID/module.prop"
@@ -135,6 +156,6 @@ rmtouch "$MODPATH/zygisk/placeholder"
 ##############
 
 cd /
-"$BOOTMODE" || recovery_cleanup
+[ "$BOOTMODE" = true ] || recovery_cleanup
 rmtouch "$TMPDIR"
 exit 0
