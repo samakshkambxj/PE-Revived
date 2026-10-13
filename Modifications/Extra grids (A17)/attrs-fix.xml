@@ -1,0 +1,10 @@
+<!-- Attr definitions apktool 2.11.1 drops when decoding the A17
+     NexusLauncherRelease base. Merge these into res/values/attrs.xml
+     before rebuilding, or aapt2 link fails with "attribute not found".
+     Formats inferred from usage: state_* in selectors = boolean,
+     *_Dp floats ("1772.0"), align/columns integers. -->
+    <attr name="alignWithWorkspaceRow" format="integer" />
+    <attr name="allAppsColumns" format="integer" />
+    <attr name="matchTextInsetWithQuery" format="boolean" />
+    <attr name="minDeviceWidthDp" format="float" />
+    <attr name="state_dragged" format="boolean" />

@@ -1,0 +1,10 @@
+<!-- Merge into res/values/strings.xml -->
+<resources>
+    <string name="small_5x7_grid">Small 5×7</string>
+    <string name="small_5x8_grid">Small 5×8</string>
+    <string name="small_6x5_grid">Small 6×5</string>
+    <string name="small_6x6_grid">Small 6×6</string>
+    <string name="small_6x7_grid">Small 6×7</string>
+    <string name="small_6x8_grid">Small 6×8</string>
+    <string name="small_6x9_grid">Small 6×9</string>
+</resources>
