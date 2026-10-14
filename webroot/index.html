@@ -87,10 +87,15 @@ function applyShape(label, pkg) {
   } else {
     cmds = "cmd overlay enable --user 0 " + pkg;
   }
-  cmds += ";am force-stop com.google.android.apps.nexuslauncher;echo done";
+  // Drop cached icon bitmaps (layout untouched) so both home and drawer
+  // re-render with the new mask, then restart the launcher.
+  cmds += ";rm -f /data/data/com.google.android.apps.nexuslauncher/databases/app_icons.db*";
+  cmds += " /data/data/com.android.launcher3/databases/app_icons.db*";
+  cmds += ";am force-stop com.google.android.apps.nexuslauncher";
+  cmds += " com.android.launcher3;echo done";
   run(cmds).then(function () {
     toast(label + " applied");
-    setTimeout(refresh, 1500);
+    setTimeout(refresh, 2500);
   }).catch(function () {
     toast("Open this page from the KernelSU manager");
   });
