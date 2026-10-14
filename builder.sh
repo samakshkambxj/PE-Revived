@@ -85,8 +85,6 @@ recover_ple() {
   mv "system/product/priv-app/temp/PixelLauncherMods" "system/product/priv-app/$folder" 2>/dev/null || true
   mv "system/product/overlay/temp/PixelLauncherModsOverlay" "system/product/overlay/$folder" 2>/dev/null || true
   mv "system/product/overlay/temp/IconShape" "system/product/overlay/$folder" 2>/dev/null || true
-  mv "system/product/priv-app/temp/ExtendedSettings" "system/product/priv-app/$folder" 2>/dev/null || true
-  mv "system/product/priv-app/temp/IconShapeChanger" "system/product/priv-app/$folder" 2>/dev/null || true
 
   # Delete temp folders
   rm -rf system/product/priv-app/NexusLauncherRelease/temp
@@ -343,7 +341,7 @@ elif [ $choice -eq 2 ]; then
   # Create zip file
   echo -e "${GREEN}>> Creating Magisk Module${NC}"
   echo ""                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 # make the output look easier to read
-  zip -r -q "Pixel Launcher Extended Online Installer $version.zip" . -x .git/\* Modifications/\* screenshots/\* builder.sh builder_dependencies.sh banner.jpg banner2.jpg changelog.md logo.png offline_setup.sh customize_setup.sh online_setup.sh manual_setup.sh manual_installer_instructions.md config.txt README.md system/product/priv-app/NexusLauncherRelease/*\* system/system_ext/priv-app/NexusLauncherRelease/*\* system/product/priv-app/PixelLauncherMods/PixelLauncherMods.apk system/product/overlay/ThemedIconsOverlay/*\* system/system_ext/priv-app/WallpaperPickerGoogleRelease/* system/product/overlay/TeamFiles* system/product/priv-app/ExtendedSettings/ExtendedSettings.apk system/product/priv-app/IconShapeChanger/IconShapeChanger.apk Pixel\ Launcher\ Extended* # Ignore specified files and folders because they are not needed for the module
+  zip -r -q "Pixel Launcher Extended Online Installer $version.zip" . -x .git/\* Modifications/\* screenshots/\* builder.sh builder_dependencies.sh banner.jpg banner2.jpg changelog.md logo.png offline_setup.sh customize_setup.sh online_setup.sh manual_setup.sh manual_installer_instructions.md config.txt README.md system/product/priv-app/NexusLauncherRelease/*\* system/system_ext/priv-app/NexusLauncherRelease/*\* system/product/priv-app/PixelLauncherMods/PixelLauncherMods.apk system/product/overlay/ThemedIconsOverlay/*\* system/system_ext/priv-app/WallpaperPickerGoogleRelease/* system/product/overlay/TeamFiles* Pixel\ Launcher\ Extended* # Ignore specified files and folders because they are not needed for the module
   # Delete temp file
   if [ -f "setup.sh" ]; then
     rm setup.sh
@@ -375,7 +373,7 @@ elif [ $choice -eq 3 ]; then
 
   while true; do
     echo $divider
-    echo -e "${ORANGE}Do you wanna add 'Material You Greetings In At A Glance' & install Extended Settings app?${NC}"
+    echo -e "${ORANGE}Do you wanna add 'Material You Greetings In At A Glance'?${NC}"
     echo "1. Yes"
     echo "2. No"
     echo $divider
@@ -396,8 +394,6 @@ elif [ $choice -eq 3 ]; then
       mv -f "system/product/overlay/TeamFiles_UserChip.apk" "system/product/overlay/temp/$file"
       mv -f "system/product/overlay/TeamFiles_UserCL.apk" "system/product/overlay/temp/$file"
       mv -f "system/product/overlay/TeamFiles_UserLockscreen.apk" "system/product/overlay/temp/$file"
-      mv "system/product/priv-app/ExtendedSettings" "system/product/priv-app/temp/$folder"
-      mv -f "system/product/etc/permissions/privapp-permissions-com.domain.liranazuz5.extendedsettings.xml" "system/product/etc/permissions/temp/$file"
       break
 
     else
@@ -462,7 +458,7 @@ elif [ $choice -eq 3 ]; then
 
   while true; do
     echo $divider
-    echo -e "${ORANGE}Do you want to install Icon Shape Changer app?${NC}"
+    echo -e "${ORANGE}Do you want to install extra icon shapes?${NC}"
     echo "1. Yes"
     echo "2. No"
     echo $divider
@@ -489,8 +485,6 @@ elif [ $choice -eq 3 ]; then
       mv -f "system/product/overlay/TeamFiles_we_Teardrops.apk" "system/product/overlay/temp/$file"
       mv -f "system/product/overlay/TeamFiles_we_Vessel.apk" "system/product/overlay/temp/$file"
       mv -f "system/product/overlay/TeamFiles_we_Samsung.apk" "system/product/overlay/temp/$file"
-      mv "system/product/priv-app/IconShapeChanger" "system/product/priv-app/temp/$folder"
-      mv -f "system/product/etc/permissions/privapp-permissions-com.saitama.iconshape.xml" "system/product/etc/permissions/temp/$file"
       break
 
     else

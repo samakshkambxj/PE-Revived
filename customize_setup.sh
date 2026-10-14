@@ -33,8 +33,6 @@ set_permissions() {
   set_perm_recursive "$MODPATH/system/product/overlay/PixelLauncherModsOverlay" 0 0 0777 0755
   set_perm_recursive "$MODPATH/system/product/overlay/PixelRecentsProvider" 0 0 0777 0755
   set_perm_recursive "$MODPATH/system/product/overlay/ThemedIconsOverlay" 0 0 0777 0755
-  set_perm_recursive "$MODPATH/system/product/priv-app/ExtendedSettings" 0 0 0777 0755
-  set_perm_recursive "$MODPATH/system/product/priv-app/IconShapeChanger" 0 0 0777 0755
   set_perm_recursive "$MODPATH/system/product/priv-app/PixelLauncherDT2S" 0 0 0777 0755
   set_perm_recursive "$MODPATH/system/product/priv-app/PixelLauncherMods" 0 0 0777 0755
   set_perm_recursive "$MODPATH/system/product/priv-app/PixelLauncherMods/lib/arm64" 0 0 0777 0755

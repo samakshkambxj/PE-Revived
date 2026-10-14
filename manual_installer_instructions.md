@@ -9,15 +9,15 @@
 1. LAUNCHER=
 2. DT2S=
 3. Pixel_Launcher_Mods_App=
-4. Icon_Shape_Changer_App=
+4. Icon_Shapes=
 5. # Don't modify anything after this
 ```
-- In lines 1-4 you can see variables with the name of **LAUNCHER**, **DT2S**, **Pixel_Launcher_Mods_App** & **Icon_Shape_Changer_App**. We need to add some values of these variables in order to modify the installer & get desired modifications in PLE. The following are the instructions for editing config.txt.
+- In lines 1-4 you can see variables with the name of **LAUNCHER**, **DT2S**, **Pixel_Launcher_Mods_App** & **Icon_Shapes**. We need to add some values of these variables in order to modify the installer & get desired modifications in PLE. The following are the instructions for editing config.txt.
 
 ### Editing config.txt
 
 #### Line 1: LAUNCHER Variable
-Set this variable to `1` to keep glance greetings with the Extended Settings app, or `0` for the stock At A Glance without extras.
+Set this variable to `1` to keep glance greetings styles, or `0` for the stock At A Glance without extras.
 ```sh
 1. LAUNCHER=1
 ```
@@ -33,10 +33,10 @@ It's an app made by Developer [KieronQuinn](https://github.com/KieronQuinn). You
 ```sh
 3. Pixel_Launcher_Mods_App=1
 ```
-#### Line 4: Icon_Shape_Changer_App Variable
-This app can change shape of the icons in PLE. Set this variable to 1 to install it, or 0 to ignore it. Suppose you want to install this app in your rom then `the value of variable will be 1`. So, we will edit config.txt like this:
+#### Line 4: Icon_Shapes Variable
+This installs extra icon shape overlays (picked from the system Icons settings). Set this variable to 1 to install them, or 0 to ignore them. Suppose you want the extra shapes then `the value of variable will be 1`. So, we will edit config.txt like this:
 ```sh
-4. Icon_Shape_Changer_App=1
+4. Icon_Shapes=1
 ```
 
 After editing all variables, config.txt will look like this:
@@ -44,7 +44,7 @@ After editing all variables, config.txt will look like this:
 1. LAUNCHER=1
 2. DT2S=0
 3. Pixel_Launcher_Mods_App=1
-4. Icon_Shape_Changer_App=1
+4. Icon_Shapes=1
 5. # Don't modify anything after this
 ```
 Save it, go back. MT Manager will ask you to update the zip. Click OK & flash the zip in magisk.

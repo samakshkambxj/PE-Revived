@@ -11,8 +11,8 @@
 | Extra grid sizes (5x7, 5x8, 6x5–6x9) | ✅ Working |
 | Extra themed icons | ✅ Shipped, verifying |
 | Double tap to sleep *(LSPosed required)* | ✅ Shipped, verifying |
-| Icon Shape Changer + shapes | ✅ Shipped, verifying |
-| Material You At a Glance greetings + Extended Settings | 🚧 Crashes, needs rebuild |
+| Extra icon shapes (16 overlays) | ✅ Ship with module, pick from system Icons settings |
+| Material You At a Glance greetings | 🚧 Styles pending |
 | Pixel Launcher Mods app | 🚧 Dead upstream, replacement queued |
 | Hidden launcher flags + dev options | ✅ Partial (more coming) |
 | New Wallpaper picker, Themes stub, Recents provider | ✅ Working |
@@ -59,7 +59,7 @@
 - **Customize Installer**: you pre-pick the options when building the zip (no volume keys at flash time). Good for broken keys.
 - **Manual Installer** (50+ MB): like offline, but options come from editing `config.txt` in the zip (see `manual_installer_instructions.md`).
 
-During flashing you choose: At a Glance greetings + Extended Settings, double tap to sleep, Launcher Mods app, Icon Shape Changer.
+During flashing you choose: At a Glance greetings styles, double tap to sleep, Launcher Mods app, extra icon shapes.
 
 ## Activating Double Tap to Sleep
 - Include DT2S while flashing, reboot, enable **Pixel Launcher DT2S** in LSPosed, force-stop the launcher (or reboot), double-tap home and grant root.

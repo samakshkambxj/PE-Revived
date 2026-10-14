@@ -33,8 +33,6 @@ set_permissions() {
   set_perm_recursive "$MODPATH/system/product/overlay/PixelLauncherModsOverlay" 0 0 0777 0755
   set_perm_recursive "$MODPATH/system/product/overlay/PixelRecentsProvider" 0 0 0777 0755
   set_perm_recursive "$MODPATH/system/product/overlay/ThemedIconsOverlay" 0 0 0777 0755
-  set_perm_recursive "$MODPATH/system/product/priv-app/ExtendedSettings" 0 0 0777 0755
-  set_perm_recursive "$MODPATH/system/product/priv-app/IconShapeChanger" 0 0 0777 0755
   set_perm_recursive "$MODPATH/system/product/priv-app/PixelLauncherDT2S" 0 0 0777 0755
   set_perm_recursive "$MODPATH/system/product/priv-app/PixelLauncherMods" 0 0 0777 0755
   set_perm_recursive "$MODPATH/system/product/priv-app/PixelLauncherMods/lib/arm64" 0 0 0777 0755
@@ -141,8 +139,6 @@ init_main() {
         rm -rf "$MODPATH/system/product/overlay/TeamFiles_UserChip.apk"
         rm -rf "$MODPATH/system/product/overlay/TeamFiles_UserCL.apk"
         rm -rf "$MODPATH/system/product/overlay/TeamFiles_UserLockscreen.apk"
-        rm -rf "$MODPATH/system/product/priv-app/ExtendedSettings"
-        rm -rf "$MODPATH/system/product/etc/permissions/privapp-permissions-com.domain.liranazuz5.extendedsettings.xml"
       elif [ "$var_value" = "1" ]; then
         :
       else
@@ -173,7 +169,7 @@ init_main() {
         exit 1
       fi
       ;;
-    Icon_Shape_Changer_App)
+    Icon_Shapes)
       if [ "$var_value" = "0" ]; then
         rm -rf "$MODPATH/system/product/overlay/TeamFiles_we_Cloudy.apk"
         rm -rf "$MODPATH/system/product/overlay/TeamFiles_we_Cylinder.apk"
@@ -191,12 +187,10 @@ init_main() {
         rm -rf "$MODPATH/system/product/overlay/TeamFiles_we_Teardrops.apk"
         rm -rf "$MODPATH/system/product/overlay/TeamFiles_we_Vessel.apk"
         rm -rf "$MODPATH/system/product/overlay/TeamFiles_we_Samsung.apk"
-        rm -rf "$MODPATH/system/product/priv-app/IconShapeChanger"
-        rm -rf "$MODPATH/system/product/etc/permissions/privapp-permissions-com.saitama.iconshape.xml"
       elif [ "$var_value" = "1" ]; then
         :
       else
-        echo "Invalid value of Icon_Shape_Changer_App in config.txt"
+        echo "Invalid value of Icon_Shapes in config.txt"
         exit 1
       fi
       ;;

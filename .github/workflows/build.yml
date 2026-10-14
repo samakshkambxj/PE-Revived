@@ -47,8 +47,6 @@ jobs:
             'system/product/overlay/ThemedIconsOverlay/**' \
             'system/system_ext/priv-app/WallpaperPickerGoogleRelease/*' \
             'system/product/overlay/TeamFiles*' \
-            'system/product/priv-app/ExtendedSettings/ExtendedSettings.apk' \
-            'system/product/priv-app/IconShapeChanger/IconShapeChanger.apk' \
             'Pixel Launcher Extended*' 'PE-Revived*'
           rm setup.sh
           rm customize.sh

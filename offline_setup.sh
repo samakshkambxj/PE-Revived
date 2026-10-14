@@ -33,8 +33,6 @@ set_permissions() {
   set_perm_recursive "$MODPATH/system/product/overlay/PixelLauncherModsOverlay" 0 0 0777 0755
   set_perm_recursive "$MODPATH/system/product/overlay/PixelRecentsProvider" 0 0 0777 0755
   set_perm_recursive "$MODPATH/system/product/overlay/ThemedIconsOverlay" 0 0 0777 0755
-  set_perm_recursive "$MODPATH/system/product/priv-app/ExtendedSettings" 0 0 0777 0755
-  set_perm_recursive "$MODPATH/system/product/priv-app/IconShapeChanger" 0 0 0777 0755
   set_perm_recursive "$MODPATH/system/product/priv-app/PixelLauncherDT2S" 0 0 0777 0755
   set_perm_recursive "$MODPATH/system/product/priv-app/PixelLauncherMods" 0 0 0777 0755
   set_perm_recursive "$MODPATH/system/product/priv-app/PixelLauncherMods/lib/arm64" 0 0 0777 0755
@@ -104,6 +102,13 @@ REPLACE="
 
 # Change the logic to whatever you want
 init_main() {
+  # Load the volume-key selector ourselves when the caller didn't.
+  # Magisk's update-binary does this via load_vksel, but KernelSU
+  # sources customize.sh directly and never loads it.
+  if [ -z "$VKSEL" ] && [ -n "$MODPATH" ] && [ -f "$MODPATH/addon/Volume-Key-Selector/install.sh" ]; then
+    . "$MODPATH/addon/Volume-Key-Selector/install.sh"
+  fi
+
   # A broken/absent volume-key selector takes the first option (Yes) at
   # every prompt with no waiting. Refuse instead and point at the
   # non-interactive installers.
@@ -129,8 +134,7 @@ init_main() {
   ui_print ""
   ui_print "The installation process of PE-Revived has been started!!"
   ui_print ""
-  ui_print "[*] Do you wanna add 'Material You Greetings In At A Glance'"
-  ui_print "& install Extended Settings app?"
+  ui_print "[*] Do you wanna add 'Material You Greetings In At A Glance'?"
   ui_print "[*] Press volume up to switch to another choice"
   ui_print "[*] Press volume down to continue with that choice"
   ui_print ""
@@ -175,8 +179,6 @@ init_main() {
     rm -rf "$MODPATH/system/product/overlay/TeamFiles_UserChip.apk"
     rm -rf "$MODPATH/system/product/overlay/TeamFiles_UserCL.apk"
     rm -rf "$MODPATH/system/product/overlay/TeamFiles_UserLockscreen.apk"
-    rm -rf "$MODPATH/system/product/priv-app/ExtendedSettings"
-    rm -rf "$MODPATH/system/product/etc/permissions/privapp-permissions-com.domain.liranazuz5.extendedsettings.xml"
   fi
 
   ui_print ""
@@ -269,7 +271,7 @@ init_main() {
   fi
 
   ui_print ""
-  ui_print "[*] Do you want to install Icon Shape Changer app?"
+  ui_print "[*] Do you want to install extra icon shapes?"
   ui_print "[*] Press volume up to switch to another choice"
   ui_print "[*] Press volume down to continue with that choice"
   ui_print ""
@@ -320,8 +322,6 @@ init_main() {
     rm -rf "$MODPATH/system/product/overlay/TeamFiles_we_Teardrops.apk"
     rm -rf "$MODPATH/system/product/overlay/TeamFiles_we_Vessel.apk"
     rm -rf "$MODPATH/system/product/overlay/TeamFiles_we_Samsung.apk"
-    rm -rf "$MODPATH/system/product/priv-app/IconShapeChanger"
-    rm -rf "$MODPATH/system/product/etc/permissions/privapp-permissions-com.saitama.iconshape.xml"
   fi
 
   ui_print "[*] Clearing system cache to make it work properly..."
