@@ -1,7 +1,5 @@
 # LAUNCHER: 0 = stock At A Glance, 1 = Material You greetings
 LAUNCHER=1
-# DT2S needs LSPosed; 0 skips the untested app
-DT2S=0
 # Launcher Mods is discontinued upstream; 0 skips it
 Pixel_Launcher_Mods_App=0
 # Extra icon shape overlays (picked via system Icons settings)

@@ -81,7 +81,6 @@ recover_ple() {
   for file in system/system_ext/priv-app/WallpaperPickerGoogleRelease/temp/*; do
     mv -f "$file" "system/system_ext/priv-app/WallpaperPickerGoogleRelease/$(basename $file)" 2>/dev/null || true
   done
-  mv "system/product/priv-app/temp/PixelLauncherDT2S" "system/product/priv-app/$folder" 2>/dev/null || true
   mv "system/product/priv-app/temp/PixelLauncherMods" "system/product/priv-app/$folder" 2>/dev/null || true
   mv "system/product/overlay/temp/PixelLauncherModsOverlay" "system/product/overlay/$folder" 2>/dev/null || true
   mv "system/product/overlay/temp/IconShape" "system/product/overlay/$folder" 2>/dev/null || true
@@ -394,33 +393,6 @@ elif [ $choice -eq 3 ]; then
       mv -f "system/product/overlay/TeamFiles_UserChip.apk" "system/product/overlay/temp/$file"
       mv -f "system/product/overlay/TeamFiles_UserCL.apk" "system/product/overlay/temp/$file"
       mv -f "system/product/overlay/TeamFiles_UserLockscreen.apk" "system/product/overlay/temp/$file"
-      break
-
-    else
-      echo -e "${PEACH}Invalid choice. Please try again.${NC}"
-      echo ""
-    fi
-  done
-
-  while true; do
-    echo $divider
-    echo -e "${ORANGE}Do you want to enable DT2S in Launcher?${NC}"
-    echo -e "${PURPLE}DT2S Means - Double Tap To Sleep Feature${NC}"
-    echo -e "${PURPLE}Make sure you have LSPosed Installed in your rom${NC}"
-    echo -e "${PURPLE}Without LSPosed it won't work${NC}"
-    echo -e "${PURPLE}Read Documentation on GitHub to know more about activating it${NC}"
-    echo "1. Yes"
-    echo "2. No"
-    echo $divider
-    read -p "Enter your choice: " choice
-
-    if [ $choice -eq 1 ]; then
-      :
-      break
-
-    elif [ $choice -eq 2 ]; then
-      mv "system/product/priv-app/PixelLauncherDT2S" "system/product/priv-app/temp/$folder"
-      mv -f "system/product/etc/permissions/privapp-permissions-com.uragiristereo.pldt2s.xml" "system/product/etc/permissions/temp/$file"
       break
 
     else

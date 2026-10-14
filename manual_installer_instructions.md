@@ -7,12 +7,11 @@
 - In the text editor config.txt file will look like this:
 ```sh
 1. LAUNCHER=
-2. DT2S=
-3. Pixel_Launcher_Mods_App=
-4. Icon_Shapes=
-5. # Don't modify anything after this
+2. Pixel_Launcher_Mods_App=
+3. Icon_Shapes=
+4. # Don't modify anything after this
 ```
-- In lines 1-4 you can see variables with the name of **LAUNCHER**, **DT2S**, **Pixel_Launcher_Mods_App** & **Icon_Shapes**. We need to add some values of these variables in order to modify the installer & get desired modifications in PLE. The following are the instructions for editing config.txt.
+- In lines 1-3 you can see variables with the name of **LAUNCHER**, **Pixel_Launcher_Mods_App** & **Icon_Shapes**. We need to add some values of these variables in order to modify the installer & get desired modifications in PLE. The following are the instructions for editing config.txt.
 
 ### Editing config.txt
 
@@ -22,30 +21,23 @@ Set this variable to `1` to keep glance greetings styles, or `0` for the stock A
 1. LAUNCHER=1
 ```
 
-#### Line 2: DT2S Variable
-DT2S Means - Double Tap To Sleep Feature. It requires LSPosed Installed in your rom. Without LSPosed it won't work. Read Documentation on GitHub to know more about activating it. Set this variable to 1 to enable it, or 0 to ignore it. Suppose you don't wanna enable DT2S feature in your rom then `the value of variable will be 0`. So, we will edit config.txt like this:
-```sh
-2. DT2S=0
-```
-
-#### Line 3: Pixel_Launcher_Mods_App Variable
+#### Line 2: Pixel_Launcher_Mods_App Variable
 It's an app made by Developer [KieronQuinn](https://github.com/KieronQuinn). You will be able to apply Icon Packs using it. It will also enable some more functionality to pixel launcher. Set this variable to 1 to install it, or 0 to ignore it. Suppose you want to install this app in your rom then `the value of variable will be 1`. So, we will edit config.txt like this:
 ```sh
-3. Pixel_Launcher_Mods_App=1
+2. Pixel_Launcher_Mods_App=1
 ```
-#### Line 4: Icon_Shapes Variable
+#### Line 3: Icon_Shapes Variable
 This installs extra icon shape overlays (picked from the system Icons settings). Set this variable to 1 to install them, or 0 to ignore them. Suppose you want the extra shapes then `the value of variable will be 1`. So, we will edit config.txt like this:
 ```sh
-4. Icon_Shapes=1
+3. Icon_Shapes=1
 ```
 
 After editing all variables, config.txt will look like this:
 ```sh
 1. LAUNCHER=1
-2. DT2S=0
-3. Pixel_Launcher_Mods_App=1
-4. Icon_Shapes=1
-5. # Don't modify anything after this
+2. Pixel_Launcher_Mods_App=1
+3. Icon_Shapes=1
+4. # Don't modify anything after this
 ```
 Save it, go back. MT Manager will ask you to update the zip. Click OK & flash the zip in magisk.
 > Note: You can edit config.txt file again to choose different modifications & installation options by editing variables and flash it again in magisk.

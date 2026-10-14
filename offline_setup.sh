@@ -33,7 +33,6 @@ set_permissions() {
   set_perm_recursive "$MODPATH/system/product/overlay/PixelLauncherModsOverlay" 0 0 0777 0755
   set_perm_recursive "$MODPATH/system/product/overlay/PixelRecentsProvider" 0 0 0777 0755
   set_perm_recursive "$MODPATH/system/product/overlay/ThemedIconsOverlay" 0 0 0777 0755
-  set_perm_recursive "$MODPATH/system/product/priv-app/PixelLauncherDT2S" 0 0 0777 0755
   set_perm_recursive "$MODPATH/system/product/priv-app/PixelLauncherMods" 0 0 0777 0755
   set_perm_recursive "$MODPATH/system/product/priv-app/PixelLauncherMods/lib/arm64" 0 0 0777 0755
   set_perm_recursive "$MODPATH/system/system_ext/etc/permissions" 0 0 0777 0755
@@ -181,50 +180,6 @@ init_main() {
     rm -rf "$MODPATH/system/product/overlay/TeamFiles_UserLockscreen.apk"
   fi
 
-  ui_print ""
-  ui_print "[*] Do you want to enable DT2S in Launcher?"
-  ui_print "[*] DT2S Means - Double Tap To Sleep Feature"
-  ui_print "[*] Make sure you have LSPosed Installed in your rom"
-  ui_print "[*] Without LSPosed it won't work"
-  ui_print "[*] Read Documentation on GitHub"
-  ui_print "to know more about activating it"
-  ui_print "[*] Press volume up to switch to another choice"
-  ui_print "[*] Press volume down to continue with that choice"
-  ui_print ""
-
-  sleep 0.5
-
-  ui_print "--------------------------------"
-  ui_print "[1] Yes"
-  ui_print "--------------------------------"
-  ui_print "[2] No"
-  ui_print "--------------------------------"
-
-  ui_print ""
-  ui_print "[*] Select your desired option:"
-
-  SM=1
-  while true; do
-    ui_print "  $SM"
-    "$VKSEL" && SM="$((SM + 1))" || break
-    [ "$SM" -gt "2" ] && SM=1
-  done
-
-  case "$SM" in
-  "1") FCTEXTAD1="Yes" ;;
-  "2") FCTEXTAD1="No" ;;
-  esac
-
-  ui_print "[*] Selected: $FCTEXTAD1"
-  ui_print ""
-
-  if [ "$FCTEXTAD1" = "Yes" ]; then
-    :
-
-  elif [ "$FCTEXTAD1" = "No" ]; then
-    rm -rf "$MODPATH/system/product/priv-app/PixelLauncherDT2S"
-    rm -rf "$MODPATH/system/product/etc/permissions/privapp-permissions-com.uragiristereo.pldt2s.xml"
-  fi
 
   ui_print ""
   ui_print "[*] Do you wanna install Pixel Launcher Mods app?"
@@ -339,9 +294,6 @@ init_main() {
   ui_print " --- Notes --- "
   ui_print ""
   ui_print "[*] Reboot is required"
-  ui_print ""
-  ui_print "[*] Make sure to read Documentation Properly on Github"
-  ui_print "if you wanna enable Double Tap To Sleep Feature"
   ui_print ""
   ui_print "[*] Report issues to @fileschat on Telegram"
 

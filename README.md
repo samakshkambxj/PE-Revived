@@ -10,7 +10,7 @@
 |---|---|
 | Extra grid sizes (5x7, 5x8, 6x5–6x9) | ✅ Working |
 | Extra themed icons | ✅ Shipped, verifying |
-| Double tap to sleep *(LSPosed required)* | ✅ Shipped, verifying |
+| Double tap to sleep | ✅ Native in Android 17, no module needed |
 | Extra icon shapes (16 overlays) | ✅ Ship with module, pick from system Icons settings |
 | Material You At a Glance greetings | 🚧 Styles pending |
 | Pixel Launcher Mods app | 🚧 Dead upstream, replacement queued |
@@ -41,7 +41,7 @@
 - **Android 17 (SDK 37) only.** Older Android is refused at install time.
 - AOSP-based custom ROMs and Pixel stock ROMs with working GApps.
 - Root via [Magisk](https://github.com/topjohnwu/Magisk/releases/latest) (stable) or [KernelSU](https://github.com/tiann/KernelSU) / KSU Next.
-- [LSPosed](https://github.com/LSPosed/LSPosed) *(optional, only for double tap to sleep)*.
+- No LSPosed needed: double-tap-to-sleep is native in Android 17.
 - Proper GApps (Google app, Play Services, System Intelligence) for At a Glance/weather; without them use the [At a Glance Enhancer](#at-a-glance-enhancer) add-on.
 
 **Disclaimer:** not responsible for anything that happens to your device. Keep a backup.
@@ -59,10 +59,10 @@
 - **Customize Installer**: you pre-pick the options when building the zip (no volume keys at flash time). Good for broken keys.
 - **Manual Installer** (50+ MB): like offline, but options come from editing `config.txt` in the zip (see `manual_installer_instructions.md`).
 
-During flashing you choose: At a Glance greetings styles, double tap to sleep, Launcher Mods app, extra icon shapes.
+During flashing you choose: At a Glance greetings styles, Launcher Mods app, extra icon shapes.
 
-## Activating Double Tap to Sleep
-- Include DT2S while flashing, reboot, enable **Pixel Launcher DT2S** in LSPosed, force-stop the launcher (or reboot), double-tap home and grant root.
+## Double Tap to Sleep
+Built into Android 17 — enable the system's double-tap option and it works on the home screen with no module or LSPosed needed.
 
 ## Activating Developer Options in Launcher
 - Tap the phone's build number 7 times; launcher dev options unlock alongside the system ones.

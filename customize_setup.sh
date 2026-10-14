@@ -33,7 +33,6 @@ set_permissions() {
   set_perm_recursive "$MODPATH/system/product/overlay/PixelLauncherModsOverlay" 0 0 0777 0755
   set_perm_recursive "$MODPATH/system/product/overlay/PixelRecentsProvider" 0 0 0777 0755
   set_perm_recursive "$MODPATH/system/product/overlay/ThemedIconsOverlay" 0 0 0777 0755
-  set_perm_recursive "$MODPATH/system/product/priv-app/PixelLauncherDT2S" 0 0 0777 0755
   set_perm_recursive "$MODPATH/system/product/priv-app/PixelLauncherMods" 0 0 0777 0755
   set_perm_recursive "$MODPATH/system/product/priv-app/PixelLauncherMods/lib/arm64" 0 0 0777 0755
   set_perm_recursive "$MODPATH/system/system_ext/etc/permissions" 0 0 0777 0755
@@ -136,9 +135,6 @@ init_main() {
   ui_print " --- Notes --- "
   ui_print ""
   ui_print "[*] Reboot is required"
-  ui_print ""
-  ui_print "[*] Make sure to read Documentation Properly on Github"
-  ui_print "if you wanna enable Double Tap To Sleep Feature"
   ui_print ""
   ui_print "[*] Report issues to @fileschat on Telegram"
 

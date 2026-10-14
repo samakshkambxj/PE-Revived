@@ -33,7 +33,6 @@ set_permissions() {
   set_perm_recursive "$MODPATH/system/product/overlay/PixelLauncherModsOverlay" 0 0 0777 0755
   set_perm_recursive "$MODPATH/system/product/overlay/PixelRecentsProvider" 0 0 0777 0755
   set_perm_recursive "$MODPATH/system/product/overlay/ThemedIconsOverlay" 0 0 0777 0755
-  set_perm_recursive "$MODPATH/system/product/priv-app/PixelLauncherDT2S" 0 0 0777 0755
   set_perm_recursive "$MODPATH/system/product/priv-app/PixelLauncherMods" 0 0 0777 0755
   set_perm_recursive "$MODPATH/system/product/priv-app/PixelLauncherMods/lib/arm64" 0 0 0777 0755
   set_perm_recursive "$MODPATH/system/system_ext/etc/permissions" 0 0 0777 0755
@@ -146,17 +145,6 @@ init_main() {
         exit 1
       fi
       ;;
-    DT2S)
-      if [ "$var_value" = "0" ]; then
-        rm -rf "$MODPATH/system/product/priv-app/PixelLauncherDT2S"
-        rm -rf "$MODPATH/system/product/etc/permissions/privapp-permissions-com.uragiristereo.pldt2s.xml"
-      elif [ "$var_value" = "1" ]; then
-        :
-      else
-        echo "Invalid value of DT2S in config.txt"
-        exit 1
-      fi
-      ;;
     Pixel_Launcher_Mods_App)
       if [ "$var_value" = "0" ]; then
         rm -rf "$MODPATH/system/product/priv-app/PixelLauncherMods"
@@ -221,9 +209,6 @@ init_main() {
   ui_print " --- Notes --- "
   ui_print ""
   ui_print "[*] Reboot is required"
-  ui_print ""
-  ui_print "[*] Make sure to read Documentation Properly on Github"
-  ui_print "if you wanna enable Double Tap To Sleep Feature"
   ui_print ""
   ui_print "[*] Report issues to @fileschat on Telegram"
 
