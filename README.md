@@ -67,7 +67,7 @@
 | Hide At a Glance | ❌ |
 | Disable dock / spacing | ❌ |
 | Hide desktop search bar | ❌ |
-| At a Glance greetings | ❌ |
+| At a Glance greetings | ✅ (static; dynamic needs runtime source) |
 | Launcher Mods companion | ❌ |
 | App drawer columns and row height | ✅ (shared with home grid) |
 | Drawer tabs, quick launch | ❌ |
