@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PE-Revived</title>
+<style>
+  :root { color-scheme: dark; }
+  body { font-family: system-ui, sans-serif; background: #141218; color: #e6e0e9; margin: 0; padding: 16px; }
+  h1 { font-size: 20px; margin: 4px 0 2px; }
+  .sub { color: #938f99; font-size: 13px; margin-bottom: 12px; }
+  .status { background: #1d1b20; border-radius: 12px; padding: 12px; margin-bottom: 14px; font-size: 14px; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .tile { background: #1d1b20; border: 2px solid transparent; border-radius: 14px; padding: 12px 6px; text-align: center; font-size: 13px; cursor: pointer; }
+  .tile:active { background: #2b2930; }
+  .tile.current { border-color: #d0bcff; }
+  .tile .dot { width: 34px; height: 34px; margin: 0 auto 8px; background: #49454f; }
+  .note { color: #938f99; font-size: 12px; margin-top: 14px; line-height: 1.5; }
+</style>
+</head>
+<body>
+<h1>PE-Revived</h1>
+<div class="sub">Icon shapes — tap to apply everywhere</div>
+<div class="status" id="status">Current: …</div>
+<div class="grid" id="grid"></div>
+<div class="note">If home icons don't follow, set Wallpaper &amp; style &gt; Icons back to Default (a system pick overrides overlays on the home screen).</div>
+<script>
+var SHAPES = [
+  ["Default", null],
+  ["Cloudy", "com.android.theme.icon.cloudy"],
+  ["Cylinder", "com.android.theme.icon.cylinder"],
+  ["Flower", "com.android.theme.icon.flower"],
+  ["Hexagon", "com.android.theme.icon.hexagon"],
+  ["Leaf", "com.android.theme.icon.leaf"],
+  ["Mallow", "com.android.theme.icon.mallow"],
+  ["Pebble", "com.android.theme.icon.pebble"],
+  ["Rounded Hexagon", "com.android.theme.icon.roundedhexagon"],
+  ["Rounded Rect", "com.android.theme.icon.roundedrect"],
+  ["Samsung", "com.android.theme.icon.samsung"],
+  ["Square", "com.android.theme.icon.square"],
+  ["Squircle", "com.android.theme.icon.squircle"],
+  ["Stretched", "com.android.theme.icon.stretched"],
+  ["Tapered Rect", "com.android.theme.icon.taperedrect"],
+  ["Teardrop", "com.android.theme.icon.teardrop"],
+  ["Vessel", "com.android.theme.icon.vessel"]
+];
+var PKGS = SHAPES.slice(1).map(function (s) { return s[1]; });
+
+function run(cmd) {
+  return new Promise(function (resolve, reject) {
+    if (typeof ksu === "undefined" || !ksu.exec) { reject(new Error("no-bridge")); return; }
+    var cb = "cb_" + Date.now() + "_" + Math.floor(Math.random() * 1e6);
+    window[cb] = function (errno, stdout, stderr) {
+      delete window[cb];
+      resolve({ errno: errno, stdout: stdout || "", stderr: stderr || "" });
+    };
+    try { ksu.exec(cmd, JSON.stringify({}), cb); }
+    catch (e) { delete window[cb]; reject(e); }
+  });
+}
+
+function toast(msg) {
+  try { ksu.toast(msg); } catch (e) { /* not in manager */ }
+}
+
+function refresh() {
+  var status = document.getElementById("status");
+  run("cmd overlay list --user 0 android").then(function (r) {
+    var current = "Default";
+    PKGS.forEach(function (p, i) {
+      if (r.stdout.indexOf("[x] " + p) !== -1) current = SHAPES[i + 1][0];
+    });
+    status.textContent = "Current: " + current;
+    var tiles = document.querySelectorAll(".tile");
+    tiles.forEach(function (t) {
+      t.classList.toggle("current", t.dataset.label === current);
+    });
+  }).catch(function () {
+    status.textContent = "Open this page from the KernelSU manager.";
+  });
+}
+
+function applyShape(label, pkg) {
+  var cmds;
+  if (pkg === null) {
+    cmds = PKGS.map(function (p) { return "cmd overlay disable --user 0 " + p; }).join(";");
+  } else {
+    cmds = "cmd overlay enable --user 0 " + pkg;
+  }
+  cmds += ";am force-stop com.google.android.apps.nexuslauncher;echo done";
+  run(cmds).then(function () {
+    toast(label + " applied");
+    setTimeout(refresh, 1500);
+  }).catch(function () {
+    toast("Open this page from the KernelSU manager");
+  });
+}
+
+(function build() {
+  var grid = document.getElementById("grid");
+  SHAPES.forEach(function (s) {
+    var d = document.createElement("div");
+    d.className = "tile";
+    d.dataset.label = s[0];
+    d.innerHTML = '<div class="dot"></div>' + s[0];
+    d.onclick = function () { applyShape(s[0], s[1]); };
+    grid.appendChild(d);
+  });
+  refresh();
+})();
+</script>
+</body>
+</html>
