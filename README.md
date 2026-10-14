@@ -2,7 +2,7 @@
 
 **Pixel Launcher Extended, revived for Android 17.** A Magisk/KernelSU module by [**samakshkambxj**](https://github.com/samakshkambxj), continuing the work of [TeamFiles](https://github.com/TeamFiles) (upstream `saitamasahil/Pixel-Launcher-Extended` ended at v1.7 on Android 13). Original work by TeamFiles, GPL-3.0 (see `LICENSE`).
 
-![Header Image](https://raw.githubusercontent.com/saitamasahil/Pixel-Launcher-Extended/main/banner2.jpg)
+![Header Image](banner.png)
 
 ## Features
 
@@ -96,13 +96,9 @@ Then type **PLE** and pick a variant (offline / online / customize / manual). Lo
 - **Material You stuck:** `su -c settings delete secure theme_customization_overlay_packages` (per-boot on some ROMs).
 - **Mods app stuck at loading:** force-stop and relaunch it.
 
-## Donation Links
-Upstream asks, kept as-is: [Paypal](https://www.paypal.com/paypalme/sahilsaitama96), UPI: `sahilmanchanda1996@okaxis`.
-
 ## Credits/Thanks
 Google · LiArch55 · saitamasahil · iamlooper · KieronQuinn · uragiristereo · Monet Icons Team · siavash79 · Kingsman44 · anarchist22 · WaifuPX-DG · LawnchairLauncher · RadekBledowski · PalmDevs · agam778 · atharvap8 · jaaat4u · selfmusing · Sameera · naokoshoto · Ryuk · micky387 — and TeamFiles for the original. PE-Revived continuation by [samakshkambxj](https://github.com/samakshkambxj).
 
-## Contact us
-[![TeamFiles Telegram](https://img.shields.io/badge/Telegram-TeamFiles-%2326A5E4?logo=Telegram)](https://telegram.me/filesfederation)
-[![Modules Repository](https://img.shields.io/badge/Telegram-Modules%20Repository-%2326A5E4?logo=Telegram)](https://telegram.me/modulesrepo)
-[![Support Group](https://img.shields.io/badge/Telegram-Support%20Group-%2326A5E4?logo=Telegram)](https://telegram.me/fileschat)
+## Contact me
+[![Telegram](https://img.shields.io/badge/Telegram-TeamFiles-%2326A5E4?logo=Telegram)](https://telegram.me/veyn64)
+
