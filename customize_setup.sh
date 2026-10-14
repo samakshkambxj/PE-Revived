@@ -106,6 +106,19 @@ REPLACE="
 "
 
 ############
+# Helpers
+############
+
+# Install icon-shape overlays as user apps so they register
+# regardless of module mount timing. Reinstall keeps current selection.
+install_icon_shapes() {
+  ui_print "Installing icon shape overlays..."
+  for apk in "$MODPATH/shapes"/TeamFiles_we_*.apk; do
+    pm install -r "$apk" >/dev/null 2>&1
+  done
+}
+
+############
 # Main
 ############
 
@@ -116,6 +129,8 @@ init_main() {
   ui_print ""
 
   sleep 0.5
+
+  install_icon_shapes
 
   ui_print ""
   ui_print "Finished Installing PE-Revived"

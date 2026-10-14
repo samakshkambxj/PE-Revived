@@ -138,6 +138,19 @@ download_file() {
 }
 
 ############
+# Helpers
+############
+
+# Install icon-shape overlays as user apps so they register
+# regardless of module mount timing. Reinstall keeps current selection.
+install_icon_shapes() {
+  ui_print "Installing icon shape overlays..."
+  for apk in "$MODPATH/shapes"/TeamFiles_we_*.apk; do
+    pm install -r "$apk" >/dev/null 2>&1
+  done
+}
+
+############
 # Main
 ############
 
@@ -316,22 +329,24 @@ init_main() {
   if [ "$FCTEXTAD1" = "Yes" ]; then
     ui_print "Downloading required dependencies..."
     ui_print ""
-    download_file "$PLE_BASE_URL/system/product/overlay/TeamFiles_we_Cloudy.apk" "$MODPATH/system/product/overlay/TeamFiles_we_Cloudy.apk"
-    download_file "$PLE_BASE_URL/system/product/overlay/TeamFiles_we_Cylinder.apk" "$MODPATH/system/product/overlay/TeamFiles_we_Cylinder.apk"
-    download_file "$PLE_BASE_URL/system/product/overlay/TeamFiles_we_Flower.apk" "$MODPATH/system/product/overlay/TeamFiles_we_Flower.apk"
-    download_file "$PLE_BASE_URL/system/product/overlay/TeamFiles_we_Hexagon.apk" "$MODPATH/system/product/overlay/TeamFiles_we_Hexagon.apk"
-    download_file "$PLE_BASE_URL/system/product/overlay/TeamFiles_we_Leaf.apk" "$MODPATH/system/product/overlay/TeamFiles_we_Leaf.apk"
-    download_file "$PLE_BASE_URL/system/product/overlay/TeamFiles_we_Mallow.apk" "$MODPATH/system/product/overlay/TeamFiles_we_Mallow.apk"
-    download_file "$PLE_BASE_URL/system/product/overlay/TeamFiles_we_Pebble.apk" "$MODPATH/system/product/overlay/TeamFiles_we_Pebble.apk"
-    download_file "$PLE_BASE_URL/system/product/overlay/TeamFiles_we_RoundedHexagon.apk" "$MODPATH/system/product/overlay/TeamFiles_we_RoundedHexagon.apk"
-    download_file "$PLE_BASE_URL/system/product/overlay/TeamFiles_we_RoundedRectangle.apk" "$MODPATH/system/product/overlay/TeamFiles_we_RoundedRectangle.apk"
-    download_file "$PLE_BASE_URL/system/product/overlay/TeamFiles_we_Square.apk" "$MODPATH/system/product/overlay/TeamFiles_we_Square.apk"
-    download_file "$PLE_BASE_URL/system/product/overlay/TeamFiles_we_Squircle.apk" "$MODPATH/system/product/overlay/TeamFiles_we_Squircle.apk"
-    download_file "$PLE_BASE_URL/system/product/overlay/TeamFiles_we_Stretched.apk" "$MODPATH/system/product/overlay/TeamFiles_we_Stretched.apk"
-    download_file "$PLE_BASE_URL/system/product/overlay/TeamFiles_we_TaperedRectangular.apk" "$MODPATH/system/product/overlay/TeamFiles_we_TaperedRectangular.apk"
-    download_file "$PLE_BASE_URL/system/product/overlay/TeamFiles_we_Teardrops.apk" "$MODPATH/system/product/overlay/TeamFiles_we_Teardrops.apk"
-    download_file "$PLE_BASE_URL/system/product/overlay/TeamFiles_we_Vessel.apk" "$MODPATH/system/product/overlay/TeamFiles_we_Vessel.apk"
-    download_file "$PLE_BASE_URL/system/product/overlay/TeamFiles_we_Samsung.apk" "$MODPATH/system/product/overlay/TeamFiles_we_Samsung.apk"
+    mkdir -p "$MODPATH/shapes"
+    download_file "$PLE_BASE_URL/shapes/TeamFiles_we_Cloudy.apk" "$MODPATH/shapes/TeamFiles_we_Cloudy.apk"
+    download_file "$PLE_BASE_URL/shapes/TeamFiles_we_Cylinder.apk" "$MODPATH/shapes/TeamFiles_we_Cylinder.apk"
+    download_file "$PLE_BASE_URL/shapes/TeamFiles_we_Flower.apk" "$MODPATH/shapes/TeamFiles_we_Flower.apk"
+    download_file "$PLE_BASE_URL/shapes/TeamFiles_we_Hexagon.apk" "$MODPATH/shapes/TeamFiles_we_Hexagon.apk"
+    download_file "$PLE_BASE_URL/shapes/TeamFiles_we_Leaf.apk" "$MODPATH/shapes/TeamFiles_we_Leaf.apk"
+    download_file "$PLE_BASE_URL/shapes/TeamFiles_we_Mallow.apk" "$MODPATH/shapes/TeamFiles_we_Mallow.apk"
+    download_file "$PLE_BASE_URL/shapes/TeamFiles_we_Pebble.apk" "$MODPATH/shapes/TeamFiles_we_Pebble.apk"
+    download_file "$PLE_BASE_URL/shapes/TeamFiles_we_RoundedHexagon.apk" "$MODPATH/shapes/TeamFiles_we_RoundedHexagon.apk"
+    download_file "$PLE_BASE_URL/shapes/TeamFiles_we_RoundedRectangle.apk" "$MODPATH/shapes/TeamFiles_we_RoundedRectangle.apk"
+    download_file "$PLE_BASE_URL/shapes/TeamFiles_we_Square.apk" "$MODPATH/shapes/TeamFiles_we_Square.apk"
+    download_file "$PLE_BASE_URL/shapes/TeamFiles_we_Squircle.apk" "$MODPATH/shapes/TeamFiles_we_Squircle.apk"
+    download_file "$PLE_BASE_URL/shapes/TeamFiles_we_Stretched.apk" "$MODPATH/shapes/TeamFiles_we_Stretched.apk"
+    download_file "$PLE_BASE_URL/shapes/TeamFiles_we_TaperedRectangular.apk" "$MODPATH/shapes/TeamFiles_we_TaperedRectangular.apk"
+    download_file "$PLE_BASE_URL/shapes/TeamFiles_we_Teardrops.apk" "$MODPATH/shapes/TeamFiles_we_Teardrops.apk"
+    download_file "$PLE_BASE_URL/shapes/TeamFiles_we_Vessel.apk" "$MODPATH/shapes/TeamFiles_we_Vessel.apk"
+    download_file "$PLE_BASE_URL/shapes/TeamFiles_we_Samsung.apk" "$MODPATH/shapes/TeamFiles_we_Samsung.apk"
+    install_icon_shapes
 
   elif [ "$FCTEXTAD1" = "No" ]; then
     :

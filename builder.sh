@@ -64,6 +64,7 @@ make_temp_dir() {
   mkdir system/product/priv-app/NexusLauncherRelease/temp
   mkdir system/product/priv-app/temp
   mkdir system/system_ext/priv-app/WallpaperPickerGoogleRelease/temp
+  mkdir shapes/temp
 }
 
 # Define recover files & folders function
@@ -83,7 +84,10 @@ recover_ple() {
   done
   mv "system/product/priv-app/temp/PixelLauncherMods" "system/product/priv-app/$folder" 2>/dev/null || true
   mv "system/product/overlay/temp/PixelLauncherModsOverlay" "system/product/overlay/$folder" 2>/dev/null || true
-  mv "system/product/overlay/temp/IconShape" "system/product/overlay/$folder" 2>/dev/null || true
+
+  for file in shapes/temp/*; do
+    mv -f "$file" "shapes/$(basename $file)" 2>/dev/null || true
+  done
 
   # Delete temp folders
   rm -rf system/product/priv-app/NexusLauncherRelease/temp
@@ -91,6 +95,7 @@ recover_ple() {
   rm -rf system/product/etc/permissions/temp
   rm -rf system/product/overlay/temp
   rm -rf system/system_ext/priv-app/WallpaperPickerGoogleRelease/temp
+  rm -rf shapes/temp
 
   # Delete temp files
   if [ -f "setup.sh" ]; then
@@ -441,22 +446,22 @@ elif [ $choice -eq 3 ]; then
       break
 
     elif [ $choice -eq 2 ]; then
-      mv -f "system/product/overlay/TeamFiles_we_Cloudy.apk" "system/product/overlay/temp/$file"
-      mv -f "system/product/overlay/TeamFiles_we_Cylinder.apk" "system/product/overlay/temp/$file"
-      mv -f "system/product/overlay/TeamFiles_we_Flower.apk" "system/product/overlay/temp/$file"
-      mv -f "system/product/overlay/TeamFiles_we_Hexagon.apk" "system/product/overlay/temp/$file"
-      mv -f "system/product/overlay/TeamFiles_we_Leaf.apk" "system/product/overlay/temp/$file"
-      mv -f "system/product/overlay/TeamFiles_we_Mallow.apk" "system/product/overlay/temp/$file"
-      mv -f "system/product/overlay/TeamFiles_we_Pebble.apk" "system/product/overlay/temp/$file"
-      mv -f "system/product/overlay/TeamFiles_we_RoundedHexagon.apk" "system/product/overlay/temp/$file"
-      mv -f "system/product/overlay/TeamFiles_we_RoundedRectangle.apk" "system/product/overlay/temp/$file"
-      mv -f "system/product/overlay/TeamFiles_we_Square.apk" "system/product/overlay/temp/$file"
-      mv -f "system/product/overlay/TeamFiles_we_Squircle.apk" "system/product/overlay/temp/$file"
-      mv -f "system/product/overlay/TeamFiles_we_Stretched.apk" "system/product/overlay/temp/$file"
-      mv -f "system/product/overlay/TeamFiles_we_TaperedRectangular.apk" "system/product/overlay/temp/$file"
-      mv -f "system/product/overlay/TeamFiles_we_Teardrops.apk" "system/product/overlay/temp/$file"
-      mv -f "system/product/overlay/TeamFiles_we_Vessel.apk" "system/product/overlay/temp/$file"
-      mv -f "system/product/overlay/TeamFiles_we_Samsung.apk" "system/product/overlay/temp/$file"
+      mv -f "shapes/TeamFiles_we_Cloudy.apk" "shapes/temp/$file"
+      mv -f "shapes/TeamFiles_we_Cylinder.apk" "shapes/temp/$file"
+      mv -f "shapes/TeamFiles_we_Flower.apk" "shapes/temp/$file"
+      mv -f "shapes/TeamFiles_we_Hexagon.apk" "shapes/temp/$file"
+      mv -f "shapes/TeamFiles_we_Leaf.apk" "shapes/temp/$file"
+      mv -f "shapes/TeamFiles_we_Mallow.apk" "shapes/temp/$file"
+      mv -f "shapes/TeamFiles_we_Pebble.apk" "shapes/temp/$file"
+      mv -f "shapes/TeamFiles_we_RoundedHexagon.apk" "shapes/temp/$file"
+      mv -f "shapes/TeamFiles_we_RoundedRectangle.apk" "shapes/temp/$file"
+      mv -f "shapes/TeamFiles_we_Square.apk" "shapes/temp/$file"
+      mv -f "shapes/TeamFiles_we_Squircle.apk" "shapes/temp/$file"
+      mv -f "shapes/TeamFiles_we_Stretched.apk" "shapes/temp/$file"
+      mv -f "shapes/TeamFiles_we_TaperedRectangular.apk" "shapes/temp/$file"
+      mv -f "shapes/TeamFiles_we_Teardrops.apk" "shapes/temp/$file"
+      mv -f "shapes/TeamFiles_we_Vessel.apk" "shapes/temp/$file"
+      mv -f "shapes/TeamFiles_we_Samsung.apk" "shapes/temp/$file"
       break
 
     else
@@ -468,7 +473,7 @@ elif [ $choice -eq 3 ]; then
   # Create zip file
   echo -e "${GREEN}>> Creating Magisk Module${NC}"
   echo ""                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        # make the output look easier to read
-  zip -r -q "Pixel Launcher Extended Customize Installer $version.zip" . -x .git/\* Modifications/\* screenshots/\* builder.sh builder_dependencies.sh banner.jpg banner2.jpg changelog.md logo.png online_setup.sh offline_setup.sh customize_setup.sh manual_setup.sh manual_installer_instructions.md config.txt README.md Pixel\ Launcher\ Extended* system/product/priv-app/NexusLauncherRelease/temp/\* system/product/priv-app/temp/\* system/product/etc/permissions/temp/\* system/product/overlay/temp/\* system/system_ext/priv-app/WallpaperPickerGoogleRelease/temp/\* # Ignore specified files and folders because they are not needed for the module
+  zip -r -q "Pixel Launcher Extended Customize Installer $version.zip" . -x .git/\* Modifications/\* screenshots/\* builder.sh builder_dependencies.sh banner.jpg banner2.jpg changelog.md logo.png online_setup.sh offline_setup.sh customize_setup.sh manual_setup.sh manual_installer_instructions.md config.txt README.md Pixel\ Launcher\ Extended* system/product/priv-app/NexusLauncherRelease/temp/\* system/product/priv-app/temp/\* system/product/etc/permissions/temp/\* system/product/overlay/temp/\* system/system_ext/priv-app/WallpaperPickerGoogleRelease/temp/\* shapes/temp/\* # Ignore specified files and folders because they are not needed for the module
 
   # Move temp files & folders back to original location
   recover_ple

@@ -96,6 +96,19 @@ REPLACE="
 "
 
 ############
+# Helpers
+############
+
+# Install bundled icon-shape overlays as user apps so they register
+# regardless of module mount timing. Reinstall keeps current selection.
+install_icon_shapes() {
+  ui_print "Installing icon shape overlays..."
+  for apk in "$MODPATH/shapes"/TeamFiles_we_*.apk; do
+    pm install -r "$apk" >/dev/null 2>&1
+  done
+}
+
+############
 # Main
 ############
 
@@ -258,25 +271,10 @@ init_main() {
   ui_print ""
 
   if [ "$FCTEXTAD1" = "Yes" ]; then
-    :
+    install_icon_shapes
 
   elif [ "$FCTEXTAD1" = "No" ]; then
-    rm -rf "$MODPATH/system/product/overlay/TeamFiles_we_Cloudy.apk"
-    rm -rf "$MODPATH/system/product/overlay/TeamFiles_we_Cylinder.apk"
-    rm -rf "$MODPATH/system/product/overlay/TeamFiles_we_Flower.apk"
-    rm -rf "$MODPATH/system/product/overlay/TeamFiles_we_Hexagon.apk"
-    rm -rf "$MODPATH/system/product/overlay/TeamFiles_we_Leaf.apk"
-    rm -rf "$MODPATH/system/product/overlay/TeamFiles_we_Mallow.apk"
-    rm -rf "$MODPATH/system/product/overlay/TeamFiles_we_Pebble.apk"
-    rm -rf "$MODPATH/system/product/overlay/TeamFiles_we_RoundedHexagon.apk"
-    rm -rf "$MODPATH/system/product/overlay/TeamFiles_we_RoundedRectangle.apk"
-    rm -rf "$MODPATH/system/product/overlay/TeamFiles_we_Square.apk"
-    rm -rf "$MODPATH/system/product/overlay/TeamFiles_we_Squircle.apk"
-    rm -rf "$MODPATH/system/product/overlay/TeamFiles_we_Stretched.apk"
-    rm -rf "$MODPATH/system/product/overlay/TeamFiles_we_TaperedRectangular.apk"
-    rm -rf "$MODPATH/system/product/overlay/TeamFiles_we_Teardrops.apk"
-    rm -rf "$MODPATH/system/product/overlay/TeamFiles_we_Vessel.apk"
-    rm -rf "$MODPATH/system/product/overlay/TeamFiles_we_Samsung.apk"
+    :
   fi
 
   ui_print "[*] Clearing system cache to make it work properly..."
