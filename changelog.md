@@ -1,3 +1,13 @@
+**Version 2.0.0 Beta 03 (PE-Revived, Android 17 only)**
+- Icon shapes ported: all 16 TeamFiles overlays rebuilt with the stock
+  category + SDK 37, pm-installed at flash, single-tap picker via new
+  KernelSU WebUI (with live SVG previews, applies to home and drawer).
+- Removed dead companion apps (Extended Settings, Icon Shape Changer,
+  DT2S — DT2S is native in Android 17).
+- Volume-key selector self-loads under KernelSU (no more silent-Yes).
+- Known issues: greetings styles pending; Launcher Mods replacement
+  queued; themed-icons drawer behavior parked.
+
 **Version 2.0.0 Beta 02 (PE-Revived, Android 17 only)**
 - Extra grids ported and verified on-device: 5x7, 5x8, 6x5-6x9 as
   per-size entries in the Layout picker (A17 lists one entry per
