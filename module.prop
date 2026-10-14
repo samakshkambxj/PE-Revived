@@ -4,4 +4,4 @@ version=v2.0.0-beta03
 versionCode=20002
 author=samakshkambxj (based on Pixel Launcher Extended by TeamFiles)
 description=Revived Pixel Launcher with extra features & modifications for Android 17
-updateJson=https://raw.githubusercontent.com/samakshkambxj/PE-Revived/revive/android-17/update.json
+updateJson=https://raw.githubusercontent.com/samakshkambxj/PE-Revived/main/update.json

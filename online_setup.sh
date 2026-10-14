@@ -19,9 +19,9 @@ DEBUG="false"
 
 # Base URL for files downloaded by the online installer.
 # Points at this fork, not upstream. Switch PLE_REF to main once
-# revive/android-17 is merged.
+# main is merged.
 PLE_REPO="samakshkambxj/PE-Revived"
-PLE_REF="revive/android-17"
+PLE_REF="main"
 PLE_BASE_URL="https://raw.githubusercontent.com/$PLE_REPO/$PLE_REF"
 
 ############
