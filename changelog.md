@@ -1,3 +1,18 @@
+**Version 2.0.0 Beta 02 (PE-Revived, Android 17 only)**
+- Extra grids ported and verified on-device: 5x7, 5x8, 6x5-6x9 as
+  per-size entries in the Layout picker (A17 lists one entry per
+  grid-option; 6-wide reuses 5-col specs).
+- Installer fixed on KernelSU: fallbacks for the missing Magisk
+  helpers, keycheck arch mapping, and abort-with-guidance instead of
+  silently picking Yes when volume keys don't work.
+- CI builds offline/online/manual zips and attaches them to the
+  prerelease on tag push.
+- Dropped the Android 13 modification sources.
+- Known issues: Extended Settings and Launcher Mods apps crash on
+  Android 17 and need replacements; greetings styles return with the
+  rebuilt base; separate home/drawer grid toggles need a runtime
+  override (queued).
+
 **Version 2.0.0 Beta 01 (PE-Revived, Android 17 only)**
 - Single Android 17 launcher base (v907) instead of twelve Android 13 variants.
 - Installers require SDK 37 and work on Magisk and KernelSU.
