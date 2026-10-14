@@ -6,16 +6,87 @@
 
 ## Features
 
-| Feature | Status on Android 17 |
+### Home screen
+- Extra grid sizes (5x7, 5x8, 6x5–6x9) in the Layout picker
+- Separate home columns and rows
+- Lock layout
+- Free widget resizing
+- Wallpaper zooming toggle
+- Icon labels on desktop
+- Hide status bar, top shadow, page indicator (with dark variants)
+- Hide At a Glance
+- Disable dock, dock spacing
+- Hide desktop search bar
+- Material You At a Glance greetings
+- Launcher Mods companion (icon packs, extra tools)
+
+### App drawer
+- App drawer columns and row height
+- Drawer tabs (bottom, editable), quick launch
+- Icon labels in drawer, drawer background opacity
+- Hide scrollbar, search bar toggle
+- Hide apps from drawer, search hidden apps, popup toggle
+
+### Icons
+- 1250+ themed icons, themed icon packs, force custom colors
+- Icon packs with fallback order, per-app icons and themed icons
+- 16 extra icon shapes + custom shape, size, and text size
+- Rename apps and shortcuts, home-screen shortcut icons
+- Remove shortcut badge, separate home-screen icons
+- Edit, kill, and uninstall actions in the app popup
+
+### Gestures and sleep
+- Double tap to sleep (native in Android 17)
+- Double-tap and pinch actions, hide gesture indicator and nav space
+
+### Recents
+- Live tile toggle, kill / uninstall / lock apps in recents
+- Freeform gesture, clear-all button, fixed width, no screenshot button
+- Selection toggle, memory info, background opacity
+
+### Backup and restore
+- Home layout, app drawer layout, and settings backup/restore
+
+### Launcher internals
+- Hidden flags, developer options
+- New Wallpaper picker, Themes stub, Recents provider
+- Prevent wallpaper-dimming restarts
+- Offline / Online / Customize / Manual installers, local builder, WebUI controls
+
+### Status on Android 17
+
+| Feature | Working |
 |---|---|
-| Extra grid sizes (5x7, 5x8, 6x5–6x9) | ✅ Working |
-| Extra themed icons | ✅ Shipped, verifying |
-| Double tap to sleep | ✅ Native in Android 17, no module needed |
-| Extra icon shapes (16 overlays) | ✅ Ship with module, pick from system Icons settings |
-| Material You At a Glance greetings | 🚧 Styles pending |
-| Pixel Launcher Mods app | 🚧 Dead upstream, replacement queued |
-| Hidden launcher flags + dev options | ✅ Partial (more coming) |
-| New Wallpaper picker, Themes stub, Recents provider | ✅ Working |
+| Extra grid sizes | ✅ |
+| Home columns and rows | ✅ |
+| Lock layout | ❌ |
+| Free widget resizing | ❌ |
+| Wallpaper zooming toggle | ❌ |
+| Icon labels on desktop | ❌ |
+| Hide status bar / shadow / indicator | ❌ |
+| Hide At a Glance | ❌ |
+| Disable dock / spacing | ❌ |
+| Hide desktop search bar | ❌ |
+| At a Glance greetings | ❌ |
+| Launcher Mods companion | ❌ |
+| App drawer columns and row height | ✅ (shared with home grid) |
+| Drawer tabs, quick launch | ❌ |
+| Icon labels in drawer, opacity, scrollbar, search | ❌ |
+| Hide apps, hidden search, popup toggle | ❌ |
+| Themed icons and packs | ✅ |
+| Icon packs with fallback, per-app icons | ❌ |
+| Extra icon shapes (WebUI picker) | ✅ |
+| Custom shape / size / text size | ❌ |
+| Rename apps, shortcut icons, badge | ❌ |
+| Popup edit / kill / uninstall | ❌ |
+| Double tap to sleep | ✅ (native) |
+| Double-tap / pinch actions | ❌ |
+| Recents tweaks | ❌ |
+| Backup and restore | ❌ |
+| Hidden flags | ✅ |
+| Developer options | ❌ |
+| Wallpaper picker, Themes stub, Recents provider | ✅ |
+| Installers, builder, WebUI | ✅ |
 
 ### Preview
 <div align="center">
